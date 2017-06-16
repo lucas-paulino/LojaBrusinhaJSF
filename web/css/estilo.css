@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Open Sans, Sans Serif;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    font-size: 14px;
+    color: #ffffff;
+}
+p, h1, h2, h3, h4, h5, h6, a, li{
+    text-transform: uppercase;
+}
+div{
+    border: 1px solid #ccc;
+}

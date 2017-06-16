@@ -5,26 +5,30 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css" href="grid.css" />
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
     </h:head>
     <h:body>
-        <h2>Brusinha</h2>
-        
-        <h:link value="Acesse a loja" outcome="loja"/>        
-        
-        <h:form >
-            <h:outputLabel value ="Login: " for="login"/>
-            <h:inputText id="login" value="#{login.login}"/>
-            <br/><br/>
-            <h:outputLabel value ="Senha: " for="senha"/>
-            <h:inputText id="senha" value="#{login.senha}"/>
-            <br/><br/>
-            <h:commandButton value="Entrar" action="#{login.logar}"/>
-        </h:form>        
-        
-        <h:outputText value="#{login.mensagemLogin}"/> <br/>
-        <h:outputText value="#{cadastro.mensagemCadastro}"/> <br/>        
-        
-        <h:link value="Faça seu cadastro" outcome="cadastro"/>        
+        <div>
+            <h2>Brusinha</h2>
+            <img src="img/logo_brusinha.png" alt="Logo brusinha"/>
+            <h:link value="Acesse a loja" outcome="loja"/>        
+
+            <h:form >
+                <h:outputLabel value ="Login: " for="login"/>
+                <h:inputText id="login" value="#{login.login}"/>
+                <br/><br/>
+                <h:outputLabel value ="Senha: " for="senha"/>
+                <h:inputText id="senha" value="#{login.senha}"/>
+                <br/><br/>
+                <h:commandButton value="Entrar" action="#{login.logar}"/>
+            </h:form>        
+
+            <h:outputText value="#{login.mensagemLogin}"/> <br/>
+            <h:outputText value="#{cadastro.mensagemCadastro}"/> <br/>        
+
+            <h:link value="Faça seu cadastro" outcome="cadastro"/>           
+        </div>
     </h:body>
 </html>
 
