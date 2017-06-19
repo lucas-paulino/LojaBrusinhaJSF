@@ -11,6 +11,7 @@
     position: relative;
     float: left;
     display: block;
+    padding: 1px;
 }
 
 .column + .column { margin-left: 1.6%; }
@@ -21,7 +22,7 @@
 
 .column-3 { width: 23.8%; }
 
-.column-4 { width: 32.2666666667%; }
+.column-4, saco-login { width: 32.2666666667%; }
 
 .column-5 { width: 40.7333333333%; }
 
@@ -57,9 +58,8 @@
     .column-12 {
         float: none;
         width: auto;
+        padding: 0px 40px;
     }
   
-    .column + .column {
-        margin-left: 0;
-    }
+    .column + .column { margin-left: 0; }
 }

@@ -9,24 +9,16 @@ public class LoginBean {
     private String mensagemLogin;
     private Usuario user;
             
-    public String logar(){        
-        System.out.print("Verificando login");
-        if(user != null ) {
-            System.out.println("Logado");
-            setMensagemLogin("");
-            return "sucesso";
-        }else{
-            user = new Usuario();
-            System.out.println("\n Login: "+login+" - Senha: "+senha+"\n");    
-            
-            if( getLogin().equals("admin") && getSenha().equals("12345") ){
-                SessionContext sessao = SessionContext.getInstance();
-                sessao.setAttribute("user", user);
-                return "sucesso";            
-            }else{ 
-                setMensagemLogin("Login ou senha icorretos");
-                return "erro"; 
-            }
+    public String logar(){                
+        if( getLogin().equals("admin") && getSenha().equals("12345") ){
+            System.out.println("\n Login: "+login+" - Senha: "+senha+"\n");
+            user = new Usuario();            
+            SessionContext sessao = SessionContext.getInstance();
+            sessao.setAttribute("user", user);
+            return "sucesso";            
+        }else{ 
+            setMensagemLogin("Login ou senha icorretos");
+            return "erro"; 
         }
     }
 

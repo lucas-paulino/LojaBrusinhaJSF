@@ -4,31 +4,65 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Facelet Title</title>
-        <link rel="stylesheet" type="text/css" href="grid.css" />
-        <link rel="stylesheet" type="text/css" href="estilo.css" />
+        
+        <link rel="stylesheet" type="text/css" href="css/grid.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+        
+        
     </h:head>
     <h:body>
-        <div>
-            <h2>Brusinha</h2>
-            <img src="img/logo_brusinha.png" alt="Logo brusinha"/>
-            <h:link value="Acesse a loja" outcome="loja"/>        
+        <div id="conteiner" class="preto">
+            
+            <header class="row">
+                <div class="column column-4"></div>
+                <div class="column column-4"><div class="column-8 acomoda"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></div></div>
+                <div class="column column-4"></div>
+            </header>
+            
+            <div id="conteudo" class="row">
+                <div class="column column-2"></div>
+                
+                <div class="teto column column-4" style="border-right: 1px solid #fff;">
+                    <div class="column-4 acomoda saco-login"><img src="img/saco.png" alt="Logo brusinha"/></div><br/>
+                    <div class="column-6 acomoda centro"><h:link value="Acesse a loja" outcome="loja"/></div>            
+                </div>
+                
+                <div class="teto column column-4">
+                    <div class="column-7 acomoda">
+                        <h:form id="formula">
+                            <h:outputLabel value ="Login: " for="login"/>
+                            <h:inputText id="login" value="#{login.login}"/>
 
-            <h:form >
-                <h:outputLabel value ="Login: " for="login"/>
-                <h:inputText id="login" value="#{login.login}"/>
-                <br/><br/>
-                <h:outputLabel value ="Senha: " for="senha"/>
-                <h:inputText id="senha" value="#{login.senha}"/>
-                <br/><br/>
-                <h:commandButton value="Entrar" action="#{login.logar}"/>
-            </h:form>        
+                            <h:outputLabel value ="Senha: " for="senha"/>
+                            <h:inputText id="senha" value="#{login.senha}"/>
 
-            <h:outputText value="#{login.mensagemLogin}"/> <br/>
-            <h:outputText value="#{cadastro.mensagemCadastro}"/> <br/>        
-
-            <h:link value="Faça seu cadastro" outcome="cadastro"/>           
+                            <h:commandButton style="margin-bottom: 10px;" styleClass="botaoP" class="botaoP" value="Entrar" action="#{login.logar}"/>
+                        </h:form>
+                        
+                        <div class="messagem centro">
+                            <h:outputText class="preto" value="#{login.mensagemLogin}"/>
+                            <h:outputText value="#{cadastro.mensagemCadastro}"/><br/>     
+                        </div>
+                        
+                        <h:link style="margin-top: 10px;" value="Faça seu cadastro" outcome="cadastro"/>
+                    </div>
+                </div>
+                
+                <div class="column column-2"></div>                
+            </div>
+            
+            <footer class="row">
+                
+            </footer>                                         
         </div>
     </h:body>
+    <script>
+        var m = document.getElementsByClassName("messagem")[0];
+        if(m.innerText == "\n"){
+            m.style.display = 'none';
+        }
+    </script>
 </html>
 

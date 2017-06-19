@@ -5,12 +5,97 @@
     text-decoration: none;
     list-style: none;
     outline: none;
-    font-size: 14px;
-    color: #ffffff;
+    font-size: 100%;
 }
-p, h1, h2, h3, h4, h5, h6, a, li{
+
+body{
+    font-size: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, li, label{
     text-transform: uppercase;
 }
-div{
-    border: 1px solid #ccc;
+
+h1{font-size: 3rem;} 
+h2{font-size: 2.75rem;} 
+h3{font-size: 2.5rem;}
+h4{font-size: 2.25rem;}
+h5{font-size: 1.75rem;}
+h6{font-size: 1.5rem;}
+li, label, p{font-size: 1rem;} 
+
+header{ padding: 10px; }
+
+.preto a{
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    transition: 1s;
 }
+
+.preto a:hover{
+    border-bottom: 1px solid #fff;
+}
+
+.branco a{
+    color: #000;
+    border-bottom: 1px solid transparent;
+    transition: 1s;
+}
+
+.branco a:hover{
+    border-bottom: 1px solid #000;
+}
+
+input[type="text"]{
+    display: block;
+    margin: 8px 0px;
+    width: 100%;
+}
+
+img{ width: 100%; }
+
+#conteudo{ margin: 20px 0px; }
+
+#conteiner{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+}
+
+.centro{ text-align: center; }
+
+.acomoda{ margin: 0px auto; }
+
+.teto{ padding: 20px 0px; }
+
+.preto{
+    background-color: #000;
+    color: #fff;
+}
+
+.branco{
+    background-color: #fff;
+    color: #000;
+}
+
+.botaoP{
+    background-color: #000;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    color: #fff;
+    transition: .5s;
+}
+
+.botaoP:hover{
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    color: #000;
+}
+.messagem{
+    padding: 10px;
+    border: 2px solid #fff;
+    margin-bottom: 10px;
+}
+
+    

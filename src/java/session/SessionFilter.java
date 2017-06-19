@@ -8,35 +8,41 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.registry.infomodel.User;
+import objetos.Usuario;
 
 public class SessionFilter implements Filter{
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        
-        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String url = httpServletRequest.getRequestURI();
-        
-        HttpSession session = httpServletRequest.getSession();
-        
-        if(session.getAttribute("user") != null || url.lastIndexOf("index.xhtml")>-1 ){
-            chain.doFilter(request, response);
-        }else {
-            ((HttpServletResponse)response).sendRedirect("index.xhtml");
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;        
+        String uri = httpServletRequest.getRequestURI();
+        System.out.println("URL:" + uri);        
+        if (uri != null
+                && (uri.equals("/JSFSession/")
+                || uri.equals("/JSFSession/index.xhtml")
+                || uri.equals("/JSFSession/faces/index.xhtml"))) {        
+            System.out.println("SessionFilter: Esse recurso é livre de sessão");
+            chain.doFilter(request, response);            
+        } else {
+            HttpSession session = httpServletRequest.getSession();
+            if (session.getAttribute("user") == null || !(session.getAttribute("user") instanceof Usuario)) {
+                System.err.println("SessionFilter: Você não tem acesso a esse recurso restrito");
+                request.setAttribute("mensagem", "Você não tem permissão para acessar este recurso");
+                request.getRequestDispatcher("/faces/index.xhtml").forward(request, response);
+            } else {
+                System.out.println("SessionFilter: Você tem acesso a esse recurso restrito");
+                chain.doFilter(request, response);
+            }
         }
     }
 
     @Override
     public void destroy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    }  
 }
