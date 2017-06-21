@@ -12,7 +12,16 @@ public class LoginBean {
     public String logar(){                
         if( getLogin().equals("admin") && getSenha().equals("12345") ){
             System.out.println("\n Login: "+login+" - Senha: "+senha+"\n");
-            user = new Usuario();            
+            
+            user.setId(0);
+            user.setNome("adiministração");
+            user.setCpf("000.000.000-00");
+            user.setEmail("admin@email.com");
+            user.setTelefone("00","00000000");
+            user.setLogin(login);
+            user.setSenha(senha);
+            user.setAdmin(true);                    
+            
             SessionContext sessao = SessionContext.getInstance();
             sessao.setAttribute("user", user);
             return "sucesso";            

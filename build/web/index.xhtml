@@ -5,22 +5,17 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Facelet Title</title>
-        
+        <title>Brusinha</title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
-        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
-        
-        
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />                
     </h:head>
     <h:body>
-        <div id="conteiner" class="preto">
-            
+        <div id="conteiner" class="preto">            
             <header class="row">
                 <div class="column column-4"></div>
                 <div class="column column-4"><div class="column-8 acomoda"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></div></div>
                 <div class="column column-4"></div>
-            </header>
-            
+            </header>            
             <div id="conteudo" class="row">
                 <div class="column column-2"></div>
                 
@@ -41,7 +36,7 @@
                             <h:commandButton style="margin-bottom: 10px;" styleClass="botaoP" class="botaoP" value="Entrar" action="#{login.logar}"/>
                         </h:form>
                         
-                        <div class="messagem centro">
+                        <div onload="myFunction()" class="messagem centro">
                             <h:outputText class="preto" value="#{login.mensagemLogin}"/>
                             <h:outputText value="#{cadastro.mensagemCadastro}"/><br/>     
                         </div>
@@ -60,9 +55,18 @@
     </h:body>
     <script>
         var m = document.getElementsByClassName("messagem")[0];
+        m.onclick = function() {myFunction()};
+        //function some(){ m.style.display = 'none'; }
+        
+        function myFunction() {
+            alert("deu ruim");
+        }
+        
         if(m.innerText == "\n"){
             m.style.display = 'none';
-        }
+        }//else{
+            //setTimeout(some(), 3000)
+        //}
     </script>
 </html>
 

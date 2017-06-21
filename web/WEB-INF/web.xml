@@ -20,7 +20,7 @@
     </filter>
     <filter-mapping>
         <filter-name>SessionFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/restricted/*</url-pattern>
     </filter-mapping>    
     <session-config>
         <session-timeout>
