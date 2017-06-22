@@ -32,8 +32,9 @@
 
                             <h:outputLabel value ="Senha: " for="senha"/>
                             <h:inputText id="senha" value="#{login.senha}"/>
-
-                            <h:commandButton style="margin-bottom: 10px;" styleClass="botaoP" class="botaoP" value="Entrar" action="#{login.logar}"/>
+                            <div style="margin-bottom: 20px; margin-top: 20px;" class="acomoda column-4"> 
+                                <h:commandButton class="botaoP column-12" value="Entrar" action="#{login.logar}"/>
+                            </div>
                         </h:form>
                         
                         <div onload="myFunction()" class="messagem centro">
@@ -41,7 +42,7 @@
                             <h:outputText value="#{cadastro.mensagemCadastro}"/><br/>     
                         </div>
                         
-                        <h:link style="margin-top: 10px;" value="Faça seu cadastro" outcome="cadastro"/>
+                        <h6 class="centro"><h:link style="margin-top: 10px;" value="Faça seu cadastro" outcome="cadastro"/></h6>
                     </div>
                 </div>
                 
@@ -49,24 +50,41 @@
             </div>
             
             <footer class="row">
-                
+                <div class="column column-4">
+                    <h4>85 00000-0000</h4>
+                    <p>atendimento@brusinha.com.br</p> 
+                    <p>Resposta em até 24h nos dias úteis</p>
+                </div>
+                <div class="column column-4">
+                    <ul id="inf_brusinha">
+                        <li><a href="#">Sobre a brusinha</a></li>
+                        <li><a href="#">Nossas Lojas</a></li>
+                        <li><a href="#">FAQs</a></li>							
+                    </ul>
+                </div>
+                <div class="column column-4">
+                    <ul>
+                        <li><a href="#"><img src="img/pinterest.png"/></a></li>
+                        <li><a href="#"><img src="img/twitter.png"/></a></li>
+                        <li><a href="#"><img src="img/instagram.png"/></a></li>
+                        <li><a href="#"><img src="img/facebook.png"/></a></li>
+                    </ul>
+                </div>
             </footer>                                         
         </div>
     </h:body>
     <script>
         var m = document.getElementsByClassName("messagem")[0];
-        m.onclick = function() {myFunction()};
-        //function some(){ m.style.display = 'none'; }
         
-        function myFunction() {
-            alert("deu ruim");
+        function fecharMensagem() {
+            m.style.display = 'none';
         }
         
+        m.onclick = function(){ fecharMensagem() };        
+        
         if(m.innerText == "\n"){
-            m.style.display = 'none';
-        }//else{
-            //setTimeout(some(), 3000)
-        //}
+            fecharMensagem();
+        }
     </script>
 </html>
 

@@ -28,10 +28,10 @@ public class Usuario {
 
         public String getSenha() { return senha; }
         public void setSenha(String senha) { this.senha = senha; }
-
-        public String getTelefone() { return telefone.gettelefone(); }
-        public void setTelefone(String ddd, String numero) { this.telefone.setDdd(ddd); this.telefone.setNumero(numero); }
-
+        
+        public Telefone getTelefone() { return telefone; }
+        public void setTelefone(Telefone telefone) { this.telefone = telefone; }
+        
         public boolean isAdmin() { return admin; }
         public void setAdmin(boolean admin) { this.admin = admin; }
 }

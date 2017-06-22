@@ -8,20 +8,18 @@
     font-size: 100%;
 }
 
-body{
-    font-size: 100%;
-}
+body{ font-size: 100%; }
 
 p, h1, h2, h3, h4, h5, h6, a, li, label{
     text-transform: uppercase;
 }
 
-h1{font-size: 3rem;} 
-h2{font-size: 2.75rem;} 
-h3{font-size: 2.5rem;}
-h4{font-size: 2.25rem;}
-h5{font-size: 1.75rem;}
-h6{font-size: 1.5rem;}
+h1{font-size: 2.5rem;} 
+h2{font-size: 2.25rem;} 
+h3{font-size: 1.75rem;}
+h4{font-size: 1.5rem;}
+h5{font-size: 1.25rem;}
+h6{font-size: 0.8rem; font-weight: normal;}
 li, label, p{font-size: 1rem;} 
 
 header{ padding: 10px; }
@@ -37,13 +35,13 @@ header{ padding: 10px; }
 }
 
 .branco a{
-    color: #000;
+    color: #151515;
     border-bottom: 1px solid transparent;
     transition: 1s;
 }
 
 .branco a:hover{
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #151515;
 }
 
 input[type="text"]{
@@ -69,17 +67,17 @@ img{ width: 100%; }
 .teto{ padding: 20px 0px; }
 
 .preto{
-    background-color: #000;
+    background-color: #151515;
     color: #fff;
 }
 
 .branco{
     background-color: #fff;
-    color: #000;
+    color: #151515;
 }
 
 .botaoP{
-    background-color: #000;
+    background-color: #151515;
     border: 2px solid #fff;
     padding: 5px 10px;
     color: #fff;
@@ -88,14 +86,28 @@ img{ width: 100%; }
 
 .botaoP:hover{
     background-color: #fff;
-    border: 2px solid #000;
+    border: 2px solid #151515;
     padding: 5px 10px;
-    color: #000;
+    color: #151515;
 }
+
+.botaoB{
+    background-color: #fff;
+    border: 2px solid #151515;
+    padding: 5px 10px;
+    color: #151515;
+    transition: .5s;
+}
+
+.botaoB:hover{
+    background-color: #151515;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    color: #fff;
+}
+
 .messagem{
     padding: 10px;
     border: 2px solid #fff;
     margin-bottom: 10px;
 }
-
-    
