@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: Open Sans, Sans Serif;
+    font-family: Open Sans, sans-serif;
     text-decoration: none;
     list-style: none;
     outline: none;
@@ -51,8 +51,6 @@ input[type="text"]{
 }
 
 img{ width: 100%; }
-
-#conteudo{ margin: 20px 0px; }
 
 #conteiner{
     position: absolute;
@@ -111,3 +109,17 @@ img{ width: 100%; }
     border: 2px solid #fff;
     margin-bottom: 10px;
 }
+
+.redes-sociais li{
+    display: inline-block;
+} 
+
+.esp-topo{ margin-top: 60px; }
+
+.esp-baixoGG{ margin-bottom: 30px; }
+
+.esp-baixoG{ margin-bottom: 20px; }
+
+.esp-baixoM{ margin-bottom: 10px; }
+
+.esp-baixoP{ margin-bottom: 5px; }
