@@ -1,3 +1,14 @@
+@font-face {
+    font-family: Open Sans;
+    src: url(../font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Asap;
+    src: url(../font/Asap-Regular.otf);
+}
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -29,10 +40,7 @@ header{ padding: 10px; }
     border-bottom: 1px solid transparent;
     transition: 1s;
 }
-
-.preto a:hover{
-    border-bottom: 1px solid #fff;
-}
+.preto a:hover{ border-bottom: 1px solid #fff; }
 
 .branco a{
     color: #151515;
@@ -40,14 +48,13 @@ header{ padding: 10px; }
     transition: 1s;
 }
 
-.branco a:hover{
-    border-bottom: 1px solid #151515;
-}
+.branco a:hover{ border-bottom: 1px solid #151515; }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
     display: block;
     margin: 8px 0px;
     width: 100%;
+    border: none;
 }
 
 img{ width: 100%; }
@@ -110,9 +117,7 @@ img{ width: 100%; }
     margin-bottom: 10px;
 }
 
-.redes-sociais li{
-    display: inline-block;
-} 
+.redes-sociais li{ display: inline-block; } 
 
 .esp-topo{ margin-top: 60px; }
 
@@ -123,3 +128,7 @@ img{ width: 100%; }
 .esp-baixoM{ margin-bottom: 10px; }
 
 .esp-baixoP{ margin-bottom: 5px; }
+
+.sem-negrito{
+    font-weight:normal;
+}
