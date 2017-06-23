@@ -25,6 +25,10 @@ p, h1, h2, h3, h4, h5, h6, a, li, label{
     text-transform: uppercase;
 }
 
+footer{
+    padding-top: 20px;
+}
+
 h1{font-size: 2.5rem;} 
 h2{font-size: 2.25rem;} 
 h3{font-size: 1.75rem;}
