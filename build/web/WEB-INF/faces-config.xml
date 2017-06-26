@@ -42,11 +42,13 @@
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+            <redirect />
         </navigation-case>
         
         <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/cadastro.xhtml</to-view-id>
+            <redirect />
         </navigation-case>
     </navigation-rule>
        
