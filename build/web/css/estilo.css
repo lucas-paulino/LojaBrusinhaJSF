@@ -8,7 +8,6 @@
     src: url(../font/Asap-Regular.otf);
 }
 
-
 *{
     margin: 0px;
     padding: 0px;
@@ -39,19 +38,30 @@ li, label, p{font-size: 1rem;}
 
 header{ padding: 10px; }
 
+footer{ padding-top: 20px; }
+
+.preto{
+    background-color: #151515;
+    color: #fff;
+}
+
 .preto a{
     color: #fff;
     border-bottom: 1px solid transparent;
-    transition: 1s;
+    transition: .5s;
 }
 .preto a:hover{ border-bottom: 1px solid #fff; }
+
+.branco{
+    background-color: #fff;
+    color: #151515;
+}
 
 .branco a{
     color: #151515;
     border-bottom: 1px solid transparent;
-    transition: 1s;
+    transition: .5s;
 }
-
 .branco a:hover{ border-bottom: 1px solid #151515; }
 
 input[type="text"], input[type="password"]{
@@ -74,16 +84,6 @@ img{ width: 100%; }
 .acomoda{ margin: 0px auto; }
 
 .teto{ padding: 20px 0px; }
-
-.preto{
-    background-color: #151515;
-    color: #fff;
-}
-
-.branco{
-    background-color: #fff;
-    color: #151515;
-}
 
 .botaoP{
     background-color: #151515;
@@ -133,6 +133,19 @@ img{ width: 100%; }
 
 .esp-baixoP{ margin-bottom: 5px; }
 
-.sem-negrito{
-    font-weight:normal;
+.sem-negrito{ font-weight:normal; }
+
+#MenuP ul, #MenuU ul{ padding: 14px 0px; }
+
+#MenuP ul li, #MenuU ul li{
+    display: inline-block;
+    padding: 0px 5px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 550px) {
+    #MenuP ul li{
+        display: block;
+        padding: 0px 5px;
+    }
 }

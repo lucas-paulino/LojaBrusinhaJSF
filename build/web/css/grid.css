@@ -58,7 +58,7 @@
     .column-12 {
         float: none;
         width: auto;
-        padding: 0px 40px;
+        padding: 0px 30px;
     }
   
     .column + .column { margin-left: 0; }

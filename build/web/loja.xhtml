@@ -1,33 +1,51 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Brusinha</title>        
+        <title>Perfil - Loja</title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
-        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />  
     </h:head>
     <h:body>
         <div id="conteiner">
             <header class="row preto">
-                <div class="column column-3"><div class="column-8 acomoda"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></div></div>
-                <nav class="column column-6">
-                    <ul class="preto">
-                        <a href="#"><li> item 1 </li></a>
-                        <a href="#"><li> item 1 </li></a>
-                        <a href="#"><li> item 1 </li></a>
-                        <a href="#"><li> item 1 </li></a>
-                    </ul>
-                </nav>
+                <div class="column column-3"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
+                <div class="column column-6">
+                    <nav id="MenuP" class="column-6 acomoda">
+                        <ul class="preto">
+                            <a href="#"><li>Animes</li></a>
+                            <a href="#"><li>Bandas</li></a>
+                            <a href="#"><li>Filmes</li></a>
+                            <a href="#"><li>Seires</li></a>
+                        </ul>
+                    </nav>
+                </div>
                 <div class="column column-3">
-                    <ul class="preto">
-                        <a href="#"><li> Nome Do User </li></a>
-                        <a href="#"><li> Saco +00 </li></a>
-                    </ul>
+                    <nav id="MenuU" class="row acomoda">
+                        <div  class="column column-8">
+                            <a href="perfil.xhtml">
+                                <ul> 
+                                    <li> <img src="img/icon_user.png" /> </li>
+                                    <li> <h6> <h:outputText value="Ola, #{sessionScope.user.login}" /> </h6> </li> 
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="column column-4">
+                            <a href="carrinho.xhtml">
+                                <ul>                                
+                                    <li> <img src="img/icon_saco.png" /> </li>
+                                    <li> <h6>00</h6> </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </nav>
                 </div>
             </header>
+            
+            <div class="branco"></div>
             
             <footer class="row esp-topo preto">
                 <div class="column column-4 esp-baixoGG centro">

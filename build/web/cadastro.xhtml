@@ -5,7 +5,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Brusinha</title>        
+        <title>Cadastro - Brusinha</title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     </h:head>
@@ -13,7 +13,7 @@
         <div id="conteiner" class="preto">
             <header class="row esp-topo esp-baixoGG">
                 <div class="column column-4"></div>
-                <div class="column column-4"><div class="column-8 acomoda"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></div></div>
+                <div class="column column-4"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
                 <div class="column column-4"></div>
             </header>
             <div id="conteudo" class="row esp-baixoGG">
@@ -22,22 +22,22 @@
                     <h3 class="centro sem-negrito">Cadastro</h3>
                     <h:form >
                         <h:outputLabel value ="Nome: " for="nome"/><br/>
-                        <h:inputText id="nome" value="#{cadastro.nome}"/>
+                        <h:inputText id="nome" required="true" value="#{cadastro.nome}"/>
 
                         <h:outputLabel value ="CPF: " for="cpf"/><br/>
-                        <h:inputText id="cpf" value="#{cadastro.cpf}"/>
+                        <h:inputText id="cpf" required="true" value="#{cadastro.cpf}"/>
 
                         <h:outputLabel value ="Email: " for="email"/><br/>
-                        <h:inputText id="email" value="#{cadastro.email}"/>
+                        <h:inputText id="email" required="true" value="#{cadastro.email}"/>
 
                         <h:outputLabel value ="Telefone: " for="telefone"/><br/>
                         <h:inputText id="telefone" value="#{cadastro.telefone}"/>
 
                         <h:outputLabel value ="Login: " for="login"/><br/>
-                        <h:inputText id="login" value="#{cadastro.login}"/>
+                        <h:inputText id="login" required="true" value="#{cadastro.login}"/>
 
                         <h:outputLabel value ="Senha: " for="senha"/><br/>
-                        <h:inputSecret id="senha" value ="#{cadastro.senha}"/><br/>
+                        <h:inputSecret id="senha" required="true" value ="#{cadastro.senha}"/><br/>
 
                         <h:selectBooleanCheckbox id="admin" value="#{cadastro.admin}"/>
                         <h:outputLabel style="padding-left: 15px;" value="Administrador" for="admin"/><br/><br/>

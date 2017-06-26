@@ -14,6 +14,12 @@
         <managed-bean-name>cadastro</managed-bean-name>
         <managed-bean-class>beans.CadastroBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>   
+    
+    <managed-bean>
+        <managed-bean-name>perfil</managed-bean-name>
+        <managed-bean-class>beans.PerfilBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>    
     
     <navigation-rule>
@@ -21,7 +27,7 @@
         
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
-            <to-view-id>/perfil.xhtml</to-view-id>
+            <to-view-id>perfil.xhtml</to-view-id>
         </navigation-case>
         
         <navigation-case>

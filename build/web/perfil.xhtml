@@ -5,11 +5,73 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Brusinha</title>        
+        <title>Perfil - Brusinha</title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />  
     </h:head>
     <h:body>
-        <h2>Perfil</h2>
+        <div id="conteiner">
+            <header class="row preto">
+                <div class="column column-3"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
+                <div class="column column-6">
+                    <nav id="MenuP" class="column-6 acomoda">
+                        <ul class="preto">
+                            <a href="#"><li>Animes</li></a>
+                            <a href="#"><li>Bandas</li></a>
+                            <a href="#"><li>Filmes</li></a>
+                            <a href="#"><li>Seires</li></a>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="column column-3">
+                    <nav id="MenuU" class="row acomoda">
+                        <div  class="column column-8">
+                            <a href="perfil.xhtml">
+                                <ul> 
+                                    <li> <img src="img/icon_user.png" /> </li>
+                                    <li> <h6> <h:outputText value="Ola, #{sessionScope.user.login}" /> </h6> </li> 
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="column column-4">
+                            <a href="carrinho.xhtml">
+                                <ul>                                
+                                    <li> <img src="img/icon_saco.png" /> </li>
+                                    <li> <h6>00</h6> </li>
+                                </ul>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            
+            <div class="branco"></div>
+            
+            <footer class="row esp-topo preto">
+                <div class="column column-4 esp-baixoGG centro">
+                    <h4 class="esp-baixoM">85 00000-0000</h4>
+                    <h6 class="esp-baixoP">atendimento@brusinha.com.br</h6> 
+                    <h6>Resposta em até 24h nos dias úteis</h6>
+                </div>
+                <div class="column column-3 esp-baixoGG">
+                    <ul id="inf_brusinha">
+                        <li class="esp-baixoP centro"><a href="#">Sobre a brusinha</a></li>
+                        <li class="esp-baixoP centro"><a href="#">Nossas Lojas</a></li>
+                        <li class="esp-baixoP centro"><a href="#">FAQs</a></li>							
+                    </ul>
+                </div>
+                <div class="column column-5 esp-baixoGG">
+                    <center>
+                        <h6 class="esp-baixoM">Siga-nos nas redes:</h6>
+                        <ul class="redes-sociais">                        
+                            <li><a href="#"><img src="img/pinterest.png"/></a></li>
+                            <li><a href="#"><img src="img/twitter.png"/></a></li>
+                            <li><a href="#"><img src="img/instagram.png"/></a></li>
+                            <li><a href="#"><img src="img/facebook.png"/></a></li>                        
+                        </ul>
+                    </center>
+                </div>
+            </footer>
+        </div>
     </h:body>
 </html>
