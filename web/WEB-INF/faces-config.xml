@@ -20,6 +20,12 @@
         <managed-bean-name>perfil</managed-bean-name>
         <managed-bean-class>beans.PerfilBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>  
+    
+    <managed-bean>
+        <managed-bean-name>loja</managed-bean-name>
+        <managed-bean-class>beans.LojaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>    
     
     <navigation-rule>
@@ -50,6 +56,17 @@
             <to-view-id>/cadastro.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/loja.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    
     </navigation-rule>
        
 </faces-config>

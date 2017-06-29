@@ -69,6 +69,7 @@ input[type="text"], input[type="password"]{
     margin: 8px 0px;
     width: 100%;
     border: none;
+    padding: 4px 6px;
 }
 
 img{ width: 100%; }
@@ -137,11 +138,20 @@ img{ width: 100%; }
 
 #MenuP ul, #MenuU ul{ padding: 14px 0px; }
 
+.negrito{font-weight: bold;}
+
 #MenuP ul li, #MenuU ul li{
     display: inline-block;
     padding: 0px 5px;
     text-align: center;
 }
+
+.produtos{
+    padding: 9px;
+    border: 1px solid #ffffff;
+    -webkit-transition: 2s;
+    transition: 2s;
+}.produtos:hover{ border: 1px solid #151515; }
 
 @media only screen and (max-width: 550px) {
     #MenuP ul li{

@@ -27,9 +27,18 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="perfil.xhtml">
+                                <a href="#{empty login.perfil.user ? 'perfil.xhtml' : 'index.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
-                                    <li> <h6> <h:outputText value="#{login.perfil.user.nome}" /> </h6> </li> 
+                                    <li> 
+                                        <h6> 
+                                            <c:if test="#{not empty login.perfil.user.nome}">
+                                                <h:outputText value="#{login.perfil.user.nome}" />
+                                            </c:if>
+                                            <c:if test="#{ empty login.perfil.user.nome}">
+                                                Login
+                                            </c:if>                                             
+                                        </h6> 
+                                    </li> 
                                 </a>
                             </ul>                            
                         </div>
