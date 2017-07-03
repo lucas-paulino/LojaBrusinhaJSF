@@ -3,10 +3,15 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-
     <managed-bean>
         <managed-bean-name>login</managed-bean-name>
         <managed-bean-class>beans.LoginBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>logout</managed-bean-name>
+        <managed-bean-class>beans.LogoutBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
@@ -29,44 +34,57 @@
     </managed-bean>    
     
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        
+        <from-view-id>/index.xhtml</from-view-id>        
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>perfil.xhtml</to-view-id>
         </navigation-case>
         
         <navigation-case>
+            <from-outcome>entrou</from-outcome>
+            <to-view-id>/loja.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
        
     <navigation-rule>
-        <from-view-id>/cadastro.xhtml</from-view-id>
-        
+        <from-view-id>/cadastro.xhtml</from-view-id>        
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-            <redirect />
         </navigation-case>
         
         <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/cadastro.xhtml</to-view-id>
-            <redirect />
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        
+        <from-view-id>/perfil.xhtml</from-view-id>        
         <navigation-case>
-            <from-outcome>sucesso</from-outcome>
-            <to-view-id>/loja.xhtml</to-view-id>
-            <redirect />
+            <from-outcome>saiu</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
-    
     </navigation-rule>
-       
+    
+    <navigation-rule>
+        <from-view-id>/loja.xhtml</from-view-id>        
+        <navigation-case>
+            <from-outcome>saiu</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/produto.xhtml</from-view-id>        
+        <navigation-case>
+            <from-outcome>saiu</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>   
 </faces-config>

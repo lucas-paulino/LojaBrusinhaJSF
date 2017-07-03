@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Perfil - Brusinha</title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
-        <link rel="stylesheet" type="text/css" href="css/estilo.css" />  
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     </h:head>
     <h:body>
         <div id="conteiner">
@@ -27,18 +27,28 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty login.perfil.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
-                                            <c:if test="#{not empty login.perfil.user.nome}">
-                                                <h:outputText value="#{login.perfil.user.nome}" />
+                                            <c:if test="#{not empty sessionScope.user.nome}">
+                                                <h:outputText value="#{sessionScope.user.nome}" />
                                             </c:if>
-                                            <c:if test="#{ empty login.perfil.user.nome}">
+                                            <c:if test="#{ empty sessionScope.user.nome}">
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li> 
+                                    </li>
+                                    <c:if test="#{not empty sessionScope.user.nome}">
+                                        <li> 
+                                            <h6> 
+                                                <h:form>
+                                                    <h:commandLink value="Sair" action="#{loja.vemLoja}" />
+                                                </h:form>                                             
+                                            </h6> 
+                                        </li>
+                                    </c:if>
+                                    
                                 </a>
                             </ul>                            
                         </div>
@@ -54,7 +64,58 @@
                 </div>
             </header>
             
-            <div class="branco"></div>
+            <div class="row">
+                <div class="row cinza esp-baixoG w3-bar w3-black">
+                    <div class="column column-2"></div>
+                    <div class="column column-8">
+                        <nav id="MenuP" class="column-7 acomoda">
+                            <ul class="cinza">                                
+                                <li id="MenuPerfil" class="menu_tab"><a href="#">Perfil</a></li>
+                                <li id="MenuCompras" class="menu_tab"><a href="#">Compras</a></li>
+                                <li id="MenuRelatorios" class="menu_tab"><a href="#">Relatorios</a></li>
+                                <li id="MenuUsuarios" class="menu_tab"><a href="#">Usuarios</a></li>
+                                <li id="MenuEstoque" class="menu_tab"><a href="#">Estoque</a></li>
+                            </ul>
+                        </nav>                        
+                    </div>
+                    <div class="column column-2"></div>
+                </div>
+                <div class="row">
+                    <div class="column column-2"></div>
+                    <div class="column column-8">
+                        <div id="Perfil" class="tab">
+                            <h2>Perfil</h2>
+                            <p>Nome: Nome usuario aqui</p>
+                            <p>Email: Usuario@gmail.com</p>
+                            <p>CPF: 000.000.000-00</p>
+                            <p>Telefone: 85 90000-0000</p>
+                            <p>Login: admin</p>
+                            <p>Senha: 12345</p>
+                        </div>
+
+                        <div id="Compras" class="tab" style="display:none">
+                            <h2>Compras</h2>
+
+                        </div>
+
+                        <div id="Relatorios" class="tab" style="display:none">
+                            <h2>Relatorios</h2>
+
+                        </div>
+
+                        <div id="Usuarios" class="tab" style="display:none">
+                            <h2>Usuarios</h2>
+                            <p>Tokyo is the capital of Japan.</p>
+                        </div>
+
+                        <div id="Estoque" class="tab" style="display:none">
+                            <h2>Estoque</h2>
+                            <p>Tokyo is the capital of Japan.</p>
+                        </div>
+                    </div>
+                    <div class="column column-2"></div>
+                </div>                    
+            </div>
             
             <footer class="row esp-topo preto">
                 <div class="column column-4 esp-baixoGG centro">
@@ -82,5 +143,6 @@
                 </div>
             </footer>
         </div>
+        <script type="text/javascript" src="js/tabs.js"></script>
     </h:body>
 </html>

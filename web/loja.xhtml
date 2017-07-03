@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Perfil - Loja</title>        
@@ -27,18 +28,28 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty login.perfil.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
-                                            <c:if test="#{not empty login.perfil.user.nome}">
-                                                <h:outputText value="#{login.perfil.user.nome}" />
+                                            <c:if test="#{not empty sessionScope.user.nome}">
+                                                <h:outputText value="#{sessionScope.user.nome}" />
                                             </c:if>
-                                            <c:if test="#{ empty login.perfil.user.nome}">
+                                            <c:if test="#{ empty sessionScope.user.nome}">
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li> 
+                                    </li>
+                                    <c:if test="#{not empty sessionScope.user.nome}">
+                                        <li> 
+                                            <h6> 
+                                                <h:form>
+                                                    <h:commandLink value="Sair" action="#{loja.vemLoja}" />
+                                                </h:form>                                             
+                                            </h6> 
+                                        </li>
+                                    </c:if>
+                                    
                                 </a>
                             </ul>                            
                         </div>
@@ -54,68 +65,18 @@
                 </div>
             </header>
             
-            <div style="padding: 10px;" class="row branco">
-                <div class="row"> 
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
+            <div style="padding: 10px;" class="row branco">                 
+                <ui:repeat value="#{loja.produtos}" var="p">                                                                        
+                    <div class="col column-3">
+                        <a href="#">
+                            <div class="produtos">
+                                <img src="#{p.img}" alt="#{p.nome}"/>
+                                <p class="column-8 acomoda centro esp-baixoM">#{p.nome}</p>
+                                <p class="negrito centro esp-baixoM">#{p.preco}</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                </div>
-                
-                <div class="row"> 
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                    <div class="column column-3">
-                        <a href="#"><div class="produtos">
-                            <img src="img/camisa.jpg" alt="Brusinha"/>
-                            <p class="column-8 acomoda centro esp-baixoM">Brusinha Bem Legal legenda aqui</p>
-                            <p class="negrito centro esp-baixoM">R$ 30,00</p>
-                        </div></a>
-                    </div>
-                </div>                
+                </ui:repeat>                               
             </div>
             
             <footer class="row esp-topo preto">

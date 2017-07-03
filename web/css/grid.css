@@ -7,12 +7,14 @@
 
 .row:after { clear: both; }
 
-.column {
+.column, .col {
     position: relative;
     float: left;
     display: block;
     padding: 1px;
 }
+
+.col{ margin: 0px 0.5%; }
 
 .column + .column { margin-left: 1.6%; }
 
@@ -59,7 +61,6 @@
         float: none;
         width: auto;
         padding: 0px 30px;
-    }
-  
+    }  
     .column + .column { margin-left: 0; }
 }

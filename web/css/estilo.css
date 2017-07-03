@@ -20,13 +20,9 @@
 
 body{ font-size: 100%; }
 
-p, h1, h2, h3, h4, h5, h6, a, li, label{
-    text-transform: uppercase;
-}
+p, h1, h2, h3, h4, h5, h6, a, li, label{ text-transform: uppercase; }
 
-footer{
-    padding-top: 20px;
-}
+footer{ padding-top: 20px; }
 
 h1{font-size: 2.5rem;} 
 h2{font-size: 2.25rem;} 
@@ -51,6 +47,18 @@ footer{ padding-top: 20px; }
     transition: .5s;
 }
 .preto a:hover{ border-bottom: 1px solid #fff; }
+
+.cinza{
+    background-color: #858585;
+    color: #fff;
+}
+
+.cinza a{
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    transition: .5s;
+}
+.cinza a:hover{ border-bottom: 1px solid #fff; }
 
 .branco{
     background-color: #fff;
@@ -156,6 +164,6 @@ img{ width: 100%; }
 @media only screen and (max-width: 550px) {
     #MenuP ul li{
         display: block;
-        padding: 0px 5px;
+        padding: 5px 0px;
     }
 }
