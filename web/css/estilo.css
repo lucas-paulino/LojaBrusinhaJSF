@@ -20,17 +20,17 @@
 
 body{ font-size: 100%; }
 
-p, h1, h2, h3, h4, h5, h6, a, li, label{ text-transform: uppercase; }
+p, h1, h2, h3, h4, h5, h6, a, li, label, input[type="submit"]{ text-transform: uppercase; }
 
 footer{ padding-top: 20px; }
 
-h1{font-size: 2.5rem;} 
-h2{font-size: 2.25rem;} 
-h3{font-size: 1.75rem;}
-h4{font-size: 1.5rem;}
-h5{font-size: 1.25rem;}
+h1{font-size: 2rem;} 
+h2{font-size: 1.75rem;} 
+h3{font-size: 1.5rem;}
+h4{font-size: 1.25rem;}
+h5{font-size: 1rem;}
 h6{font-size: 0.8rem; font-weight: normal;}
-li, label, p{font-size: 1rem;} 
+li, label, p{font-size: 0.9rem;} 
 
 header{ padding: 10px; }
 
@@ -75,7 +75,6 @@ footer{ padding-top: 20px; }
 input[type="text"], input[type="password"]{
     display: block;
     margin: 8px 0px;
-    width: 100%;
     border: none;
     padding: 4px 6px;
 }
@@ -97,7 +96,7 @@ img{ width: 100%; }
 .botaoP{
     background-color: #151515;
     border: 2px solid #fff;
-    padding: 5px 10px;
+    padding: 10px;
     color: #fff;
     transition: .5s;
 }
@@ -105,14 +104,14 @@ img{ width: 100%; }
 .botaoP:hover{
     background-color: #fff;
     border: 2px solid #151515;
-    padding: 5px 10px;
+    padding: 10px;
     color: #151515;
 }
 
 .botaoB{
     background-color: #fff;
     border: 2px solid #151515;
-    padding: 5px 10px;
+    padding: 10px;
     color: #151515;
     transition: .5s;
 }
@@ -120,7 +119,7 @@ img{ width: 100%; }
 .botaoB:hover{
     background-color: #151515;
     border: 2px solid #fff;
-    padding: 5px 10px;
+    padding: 10px;
     color: #fff;
 }
 
@@ -135,11 +134,9 @@ img{ width: 100%; }
 .esp-topo{ margin-top: 60px; }
 
 .esp-baixoGG{ margin-bottom: 30px; }
-
 .esp-baixoG{ margin-bottom: 20px; }
-
+.esp-cimaG{ margin-top: 20px; }
 .esp-baixoM{ margin-bottom: 10px; }
-
 .esp-baixoP{ margin-bottom: 5px; }
 
 .sem-negrito{ font-weight:normal; }
@@ -160,6 +157,19 @@ img{ width: 100%; }
     -webkit-transition: 2s;
     transition: 2s;
 }.produtos:hover{ border: 1px solid #151515; }
+
+.item-carrinho{
+    padding: 8px;
+    border-bottom: 1px solid #858585;
+}
+
+.item-carrinho div ul li{
+    display: inline-block;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.borda{ border: 1px solid #151515;}
 
 @media only screen and (max-width: 550px) {
     #MenuP ul li{

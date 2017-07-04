@@ -22,27 +22,27 @@
                     <h3 class="centro sem-negrito">Cadastro</h3>
                     <h:form >
                         <h:outputLabel value ="Nome: " for="nome"/><br/>
-                        <h:inputText id="nome" required="true" value="#{cadastro.nome}"/>
+                        <h:inputText class="full" id="nome" required="true" value="#{cadastro.nome}"/>
 
                         <h:outputLabel value ="CPF: " for="cpf"/><br/>
-                        <h:inputText id="cpf" required="true" value="#{cadastro.cpf}"/>
+                        <h:inputText class="full" id="cpf" required="true" value="#{cadastro.cpf}"/>
 
                         <h:outputLabel value ="Email: " for="email"/><br/>
-                        <h:inputText id="email" required="true" value="#{cadastro.email}"/>
+                        <h:inputText class="full" id="email" required="true" value="#{cadastro.email}"/>
 
                         <h:outputLabel value ="Telefone: " for="telefone"/><br/>
-                        <h:inputText id="telefone" value="#{cadastro.telefone}"/>
+                        <h:inputText class="full" id="telefone" value="#{cadastro.telefone}"/>
 
                         <h:outputLabel value ="Login: " for="login"/><br/>
-                        <h:inputText id="login" required="true" value="#{cadastro.login}"/>
+                        <h:inputText class="full" id="login" required="true" value="#{cadastro.login}"/>
 
                         <h:outputLabel value ="Senha: " for="senha"/><br/>
-                        <h:inputSecret id="senha" required="true" value ="#{cadastro.senha}"/><br/>
+                        <h:inputSecret class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
 
                         <h:selectBooleanCheckbox id="admin" value="#{cadastro.admin}"/>
                         <h:outputLabel style="padding-left: 15px;" value="Administrador" for="admin"/><br/><br/>
                         
-                        <div style="margin-bottom: 20px; margin-top: 20px;" class="acomoda column-5">
+                        <div class="acomoda column-5 esp-baixoG esp-cimaG">
                             <h:commandButton class="botaoP column-12" value="Enviar" action="#{cadastro.cadastrar}"/>
                         </div>
                     </h:form >

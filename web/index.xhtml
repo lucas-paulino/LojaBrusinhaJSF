@@ -16,7 +16,7 @@
                 <div class="column column-4"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
                 <div class="column column-4"></div>
             </header>            
-            <div id="conteudo" class="row esp-baixoGG">
+            <div class="row esp-baixoGG">
                 <div class="column column-2"></div>
                 
                 <div class="teto column column-4" style="border-right: 1px solid #fff;">
@@ -32,12 +32,12 @@
                     <div class="column-7 acomoda">
                         <h:form id="formula">
                             <h:outputLabel value ="Login: " for="login"/>
-                            <h:inputText id="login" value="#{login.login}"/>
+                            <h:inputText class="full" id="login" value="#{login.login}"/>
 
                             <h:outputLabel value ="Senha: " for="senha"/>
-                            <h:inputSecret id="senha" value="#{login.senha}"/>
-                            <div style="margin-bottom: 20px; margin-top: 20px;" class="acomoda column-4"> 
-                                <h:commandButton class="botaoP column-12" value="Entrar" action="#{login.logar}"/>
+                            <h:inputSecret class="full" id="senha" value="#{login.senha}"/>
+                            <div class="acomoda column-4 esp-baixoG esp-cimaG"> 
+                                <h:commandButton class="botaoP full" value="Entrar" action="#{login.logar}"/>
                             </div>
                         </h:form>
                         

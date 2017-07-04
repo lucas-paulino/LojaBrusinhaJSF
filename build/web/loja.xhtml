@@ -17,10 +17,10 @@
                 <div class="column column-6">
                     <nav id="MenuP" class="column-6 acomoda">
                         <ul class="preto">
-                            <a href="#"><li>Animes</li></a>
-                            <a href="#"><li>Bandas</li></a>
-                            <a href="#"><li>Filmes</li></a>
-                            <a href="#"><li>Seires</li></a>
+                            <li><h:link value="Animes" outcome="loja" /></li>
+                            <li><h:link value="Bandas" outcome="loja" /></li>
+                            <li><h:link value="Filmes" outcome="loja" /></li>
+                            <li><h:link value="Series" outcome="loja" /></li> 
                         </ul>
                     </nav>
                 </div>
@@ -44,7 +44,7 @@
                                         <li> 
                                             <h6> 
                                                 <h:form>
-                                                    <h:commandLink value="Sair" action="#{loja.vemLoja}" />
+                                                    <h:commandLink value="Sair" action="#{login.sair}" />
                                                 </h:form>                                             
                                             </h6> 
                                         </li>
@@ -68,7 +68,7 @@
             <div style="padding: 10px;" class="row branco">                 
                 <ui:repeat value="#{loja.produtos}" var="p">                                                                        
                     <div class="col column-3">
-                        <a href="#">
+                        <a href="produto.xhtml">
                             <div class="produtos">
                                 <img src="#{p.img}" alt="#{p.nome}"/>
                                 <p class="column-8 acomoda centro esp-baixoM">#{p.nome}</p>

@@ -40,6 +40,12 @@ public class LoginBean {
         }
     }
 
+    public String sair() {
+        SessionContext.getInstance().invalidateSession();
+        mensagemLogin = "Sua sessão foi encerrada";
+        return "saiu";
+    }
+    
     public String getLogin() { return login; }
     public void setLogin(String login) { this.login = login; }
 

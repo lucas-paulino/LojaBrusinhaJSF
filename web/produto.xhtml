@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Produto - Brusinha</title>        
@@ -11,15 +13,15 @@
     </h:head>
     <h:body>
         <div id="conteiner">
-            <header class="row preto">
+            <header class="row preto esp-baixoG">
                 <div class="column column-3"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
                 <div class="column column-6">
                     <nav id="MenuP" class="column-6 acomoda">
                         <ul class="preto">
-                            <a href="#"><li>Animes</li></a>
-                            <a href="#"><li>Bandas</li></a>
-                            <a href="#"><li>Filmes</li></a>
-                            <a href="#"><li>Seires</li></a>
+                            <li><h:link value="Animes" outcome="loja" /></li>
+                            <li><h:link value="Bandas" outcome="loja" /></li>
+                            <li><h:link value="Filmes" outcome="loja" /></li>
+                            <li><h:link value="Series" outcome="loja" /></li>                            
                         </ul>
                     </nav>
                 </div>
@@ -27,18 +29,28 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty login.perfil.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
-                                            <c:if test="#{not empty login.perfil.user.nome}">
-                                                <h:outputText value="#{login.perfil.user.nome}" />
+                                            <c:if test="#{not empty sessionScope.user.nome}">
+                                                <h:outputText value="#{sessionScope.user.nome}" />
                                             </c:if>
-                                            <c:if test="#{ empty login.perfil.user.nome}">
+                                            <c:if test="#{ empty sessionScope.user.nome}">
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li> 
+                                    </li>
+                                    <c:if test="#{not empty sessionScope.user.nome}">
+                                        <li> 
+                                            <h6> 
+                                                <h:form>
+                                                    <h:commandLink value="Sair" action="#{login.sair}" />
+                                                </h:form>                                             
+                                            </h6> 
+                                        </li>
+                                    </c:if>
+                                    
                                 </a>
                             </ul>                            
                         </div>
@@ -54,7 +66,41 @@
                 </div>
             </header>
             
-            <div class="branco"></div>
+            <div class="row branco">
+                <div class="column column-2"></div>
+                <div class="column column-5">
+                    <div class="">
+                        <img src="img/camisa.jpg" />
+                    </div>
+                </div>
+                <div class="column column-3 esp-topo">
+                    <div class="">
+                        <p class=" column-7 centro acomoda esp-baixoGG">Brusinha Bem Legal legenda aqui</p>
+                        <h:form>
+                            <div class="column-7 centro acomoda">                                
+                                <p class="esp-baixoM">Escolha o tamanho: </p>
+                                <h:selectOneMenu styleClass="esp-baixoG" value="#{user.favCoffee1}">
+                                    <f:selectItem itemValue="P" itemLabel="P" />
+                                    <f:selectItem itemValue="M" itemLabel="M" />
+                                    <f:selectItem itemValue="G" itemLabel="G" />
+                                    <f:selectItem itemValue="GG" itemLabel="GG" />
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="column-7 centro acomoda">
+                                <p class="esp-baixoM">Quantidade:</p>
+                                <input class="esp-baixoGG column-4" type="number" name="quantidade" min="1" value="1" />                           
+                            </div>
+                            
+                            <h4 class="centro esp-baixoG">R$ 30,00</h4>
+                            
+                            <div class="acomoda col-6"> 
+                                <h:commandButton class="botaoB" value="Adicionar a sacola"/>
+                            </div>
+                        </h:form>								
+                    </div>
+                </div>
+                <div class="column column-2"></div>
+            </div>
             
             <footer class="row esp-topo preto">
                 <div class="column column-4 esp-baixoGG centro">

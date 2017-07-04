@@ -11,15 +11,15 @@
     </h:head>
     <h:body>
         <div id="conteiner">
-            <header class="row preto">
+            <header class="row preto esp-baixoGG">
                 <div class="column column-3"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
                 <div class="column column-6">
                     <nav id="MenuP" class="column-6 acomoda">
                         <ul class="preto">
-                            <a href="#"><li>Animes</li></a>
-                            <a href="#"><li>Bandas</li></a>
-                            <a href="#"><li>Filmes</li></a>
-                            <a href="#"><li>Seires</li></a>
+                            <li><h:link value="Animes" outcome="loja" /></li>
+                            <li><h:link value="Bandas" outcome="loja" /></li>
+                            <li><h:link value="Filmes" outcome="loja" /></li>
+                            <li><h:link value="Series" outcome="loja" /></li> 
                         </ul>
                     </nav>
                 </div>
@@ -27,18 +27,28 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty login.perfil.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
-                                            <c:if test="#{not empty login.perfil.user.nome}">
-                                                <h:outputText value="#{login.perfil.user.nome}" />
+                                            <c:if test="#{not empty sessionScope.user.nome}">
+                                                <h:outputText value="#{sessionScope.user.nome}" />
                                             </c:if>
-                                            <c:if test="#{ empty login.perfil.user.nome}">
+                                            <c:if test="#{ empty sessionScope.user.nome}">
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li> 
+                                    </li>
+                                    <c:if test="#{not empty sessionScope.user.nome}">
+                                        <li> 
+                                            <h6> 
+                                                <h:form>
+                                                    <h:commandLink value="Sair" action="#{login.sair}" />
+                                                </h:form>                                             
+                                            </h6> 
+                                        </li>
+                                    </c:if>
+                                    
                                 </a>
                             </ul>                            
                         </div>
@@ -54,7 +64,39 @@
                 </div>
             </header>
             
-            <div class="branco"></div>
+            <div id="conteudo" class="row branco">
+                <div class="column column-2"></div>
+                <div class="column column-8">
+                    <h4 class="esp-baixoG">Sacola de compras</h4>
+                    
+                    <div class="row item-carrinho">
+                        <div class="column column-2"> <img src="img/camisa.jpg" /> </div>
+                        <div class="column column-7">
+                            <p class="esp-baixoM">Brusinha Bem Legal legenda aqui</p>
+                            <ul class="esp-baixoM">
+                                <li><a href="#">Excluir</a></li>
+                                <li>
+                                    Quantidade:
+                                    <input type="number" value="1" name="quantidade" min="1" style="width: 45px; padding: 0px 0px 0px 5px;"/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="column column-3">
+                            <h5 class="sem-negrito esp-baixoM">Unidade: 30,00</h5>
+                            <h5 class="sem-negrito esp-baixoM">Sub-total: 30,00</h5>
+                        </div>
+                    </div>
+                    
+                    <div class="row esp-cimaG">
+                        <div class="column column-9"></div>
+                        <div class="column column-3">
+                            <h5>Total: -</h5>
+                            <input class="botaoB full negrito borda esp-cimaG" type="submit" name="finalizar_compra" value="Finalizar compra" />
+                        </div>
+                    </div>
+                </div>
+                <div class="column column-2"></div>
+            </div>
             
             <footer class="row esp-topo preto">
                 <div class="column column-4 esp-baixoGG centro">

@@ -28,11 +28,11 @@
 
 .column-5 { width: 40.7333333333%; }
 
-.column-6 { width: 49.2%; }
+.column-6, .col-6 { width: 49.2%; }
 
-.column-7 { width: 57.6666666667%; }
+.column-7, .col-7 { width: 57.6666666667%; }
 
-.column-8 { width: 66.1333333333%; }
+.column-8, .col-8 { width: 66.1333333333%; }
 
 .column-9 { width: 74.6%; }
 
@@ -40,7 +40,7 @@
 
 .column-11 { width: 91.5333333333%; }
 
-.column-12 {
+.column-12, .full {
     width: 100%;
     margin-left: 0;
 }
