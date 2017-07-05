@@ -51,7 +51,7 @@
         
         <navigation-case>
             <from-outcome>entrou</from-outcome>
-            <to-view-id>/loja.xhtml</to-view-id>
+            <to-view-id>/loja.xhtml</to-view-id>           
         </navigation-case>
         
         <navigation-case>
@@ -92,6 +92,11 @@
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>acesso</from-outcome>
+            <to-view-id>/produto.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -102,9 +107,8 @@
         </navigation-case>
         
         <navigation-case>
-            <from-outcome>adicionado</from-outcome>
-            <to-view-id>/carrinho.xhtml</to-view-id>
+            <from-outcome>addcarrinho</from-outcome>
+            <to-view-id>/produto.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>   
-
 </faces-config>

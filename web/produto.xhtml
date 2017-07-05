@@ -66,20 +66,21 @@
                 </div>
             </header>
             
-            <div class="row branco">
+            <div id="conteudo" class="row branco">
                 <div class="column column-2"></div>
                 <div class="column column-5">
                     <div class="">
-                        <img src="img/camisa.jpg" />
+                        <img src="#{loja.produto.img}" />
                     </div>
                 </div>
                 <div class="column column-3 esp-topo">
                     <div class="">
-                        <p class=" column-7 centro acomoda esp-baixoGG">Brusinha Bem Legal legenda aqui</p>
+                        <h5 class=" column-7 centro acomoda esp-baixoM">#{loja.produto.nome}</h5>
+                        <p class=" column-10 centro acomoda esp-baixoG">#{loja.produto.descricao}</p>
                         <h:form>
                             <div class="column-7 centro acomoda">                                
-                                <p class="esp-baixoM">Escolha o tamanho: </p>
-                                <h:selectOneMenu styleClass="esp-baixoG" value="#{user.favCoffee1}">
+                                <p class="esp-baixoP">Escolha o tamanho: </p>
+                                <h:selectOneMenu styleClass="esp-baixoG" value="">
                                     <f:selectItem itemValue="P" itemLabel="P" />
                                     <f:selectItem itemValue="M" itemLabel="M" />
                                     <f:selectItem itemValue="G" itemLabel="G" />
@@ -87,14 +88,14 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="column-7 centro acomoda">
-                                <p class="esp-baixoM">Quantidade:</p>
-                                <input class="esp-baixoGG column-4" type="number" name="quantidade" min="1" value="1" />                           
+                                <p class="esp-baixoP">Quantidade:</p>
+                                <input class="esp-baixoGG col-4" type="number" name="quantidade" min="1" value="1" />                           
                             </div>
                             
-                            <h4 class="centro esp-baixoG">R$ 30,00</h4>
+                            <h4 class="centro esp-baixoG">#{loja.produto.preco}</h4>
                             
                             <div class="acomoda col-6"> 
-                                <h:commandButton class="botaoB" value="Adicionar a sacola"/>
+                                <h:commandButton class="botaoB" value="Adicionar à sacola"/>
                             </div>
                         </h:form>								
                     </div>

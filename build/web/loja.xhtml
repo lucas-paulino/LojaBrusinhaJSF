@@ -65,16 +65,18 @@
                 </div>
             </header>
             
-            <div style="padding: 10px;" class="row branco">                 
-                <ui:repeat value="#{loja.produtos}" var="p">                                                                        
+            <div id="conteudo" style="padding: 10px;" class="row branco">                 
+                <ui:repeat value="#{sessionScope.listaProdutos}" var="p">                                                                        
                     <div class="col column-3">
-                        <a href="produto.xhtml">
-                            <div class="produtos">
-                                <img src="#{p.img}" alt="#{p.nome}"/>
-                                <p class="column-8 acomoda centro esp-baixoM">#{p.nome}</p>
-                                <p class="negrito centro esp-baixoM">#{p.preco}</p>
-                            </div>
-                        </a>
+                        <h:form>
+                            <h:commandLink action="#{loja.vemProduto(p)}"> 
+                                <div class="produtos">
+                                    <img src="#{p.img}" alt="#{p.nome}"/>
+                                    <p class="column-8 acomoda centro esp-baixoM">#{p.nome}</p>
+                                    <p class="negrito centro esp-baixoM">#{p.preco}</p>
+                                </div>
+                            </h:commandLink>
+                        </h:form>                        
                     </div>
                 </ui:repeat>                               
             </div>

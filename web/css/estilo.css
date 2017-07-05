@@ -34,7 +34,11 @@ li, label, p{font-size: 0.9rem;}
 
 header{ padding: 10px; }
 
-footer{ padding-top: 20px; }
+footer{
+    position:absolute;
+    bottom:0;
+    width:100%; 
+}
 
 .preto{
     background-color: #151515;
@@ -171,7 +175,11 @@ img{ width: 100%; }
 
 .borda{ border: 1px solid #151515;}
 
+#conteudo{ margin-bottom: 170px }
+
 @media only screen and (max-width: 550px) {
+    #conteudo{ margin-bottom: 358px }
+    
     #MenuP ul li{
         display: block;
         padding: 5px 0px;
