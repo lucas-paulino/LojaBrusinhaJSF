@@ -33,82 +33,79 @@
         <managed-bean-name>carrinho</managed-bean-name>
         <managed-bean-class>beans.CarrinhoBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>    
-    
-    <managed-bean>
-        <managed-bean-name>produto</managed-bean-name>
-        <managed-bean-class>beans.ProdutoBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean> 
     
     //Navegação das páginas
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>        
+        <from-view-id>/index.xhtml</from-view-id>                
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/perfil.xhtml</to-view-id>
-        </navigation-case>
-        
+        </navigation-case>        
         <navigation-case>
             <from-outcome>entrou</from-outcome>
             <to-view-id>/loja.xhtml</to-view-id>           
-        </navigation-case>
-        
+        </navigation-case>        
         <navigation-case>
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        
+        </navigation-case>        
         <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
+        </navigation-case>        
     </navigation-rule>
        
     <navigation-rule>
-        <from-view-id>/cadastro.xhtml</from-view-id>        
+        <from-view-id>/cadastro.xhtml</from-view-id>                
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        
+        </navigation-case>        
         <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/cadastro.xhtml</to-view-id>
-        </navigation-case>
+        </navigation-case>        
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/perfil.xhtml</from-view-id>        
+        <from-view-id>/perfil.xhtml</from-view-id>                
         <navigation-case>
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
+        </navigation-case>        
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/loja.xhtml</from-view-id>        
+        <from-view-id>/loja.xhtml</from-view-id>                
         <navigation-case>
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        
+        </navigation-case>        
         <navigation-case>
             <from-outcome>acesso</from-outcome>
             <to-view-id>/produto.xhtml</to-view-id>
-        </navigation-case>
+        </navigation-case>        
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/produto.xhtml</from-view-id>                
-        <navigation-case>
-            <from-outcome>saiu</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        
+        <from-view-id>/produto.xhtml</from-view-id>                        
         <navigation-case>
             <from-outcome>addcarrinho</from-outcome>
             <to-view-id>/produto.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>   
+        </navigation-case>        
+        <navigation-case>
+            <from-outcome>saiu</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>        
+    </navigation-rule> 
+    
+    <navigation-rule>
+        <from-view-id>/carrinho.xhtml</from-view-id>                        
+        <navigation-case>
+            <from-outcome>saiu</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>        
+    </navigation-rule> 
+      
 </faces-config>

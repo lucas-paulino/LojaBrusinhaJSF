@@ -26,16 +26,16 @@ public class SessionFilter implements Filter{
                 && (uri.equals("/JSFSession/")
                 || uri.equals("/JSFSession/index.xhtml")
                 || uri.equals("/JSFSession/faces/index.xhtml"))) {        
-            System.out.println("SessionFilter: Esse recurso é livre de sessão");
+            System.out.println("\n SessionFilter: Esse recurso é livre de sessão \n");
             chain.doFilter(request, response);            
         } else {
             HttpSession session = httpServletRequest.getSession();
             if (session.getAttribute("user") == null || !(session.getAttribute("user") instanceof Usuario)) {
-                System.err.println("SessionFilter: Você não tem acesso a esse recurso restrito");
+                System.err.println("\n SessionFilter: Você não tem acesso a esse recurso restrito \n");
                 request.setAttribute("mensagem", "Você não tem permissão para acessar este recurso");
                 request.getRequestDispatcher("/faces/index.xhtml").forward(request, response);
             } else {
-                System.out.println("SessionFilter: Você tem acesso a esse recurso restrito");
+                System.out.println("\n SessionFilter: Você tem acesso a esse recurso restrito \n");
                 chain.doFilter(request, response);
             }
         }

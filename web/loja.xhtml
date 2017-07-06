@@ -28,7 +28,7 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'index.xhtml':'perfil.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
@@ -39,18 +39,17 @@
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li>
-                                    <c:if test="#{not empty sessionScope.user.nome}">
-                                        <li> 
-                                            <h6> 
-                                                <h:form>
-                                                    <h:commandLink value="Sair" action="#{login.sair}" />
-                                                </h:form>                                             
-                                            </h6> 
-                                        </li>
-                                    </c:if>
-                                    
+                                    </li>                                   
                                 </a>
+                                <c:if test="#{not empty sessionScope.user.nome}">
+                                    <li> 
+                                        <h6> 
+                                            <h:form>
+                                                <h:commandLink value="Sair" action="#{login.sair}" />
+                                            </h:form>                                             
+                                        </h6> 
+                                    </li>
+                                </c:if>
                             </ul>                            
                         </div>
                         <div class="column column-4">                            

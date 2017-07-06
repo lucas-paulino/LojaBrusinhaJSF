@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Produto - Brusinha</title>        
@@ -29,7 +28,7 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'index.xhtml':'perfil.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
@@ -40,18 +39,17 @@
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li>
-                                    <c:if test="#{not empty sessionScope.user.nome}">
-                                        <li> 
-                                            <h6> 
-                                                <h:form>
-                                                    <h:commandLink value="Sair" action="#{login.sair}" />
-                                                </h:form>                                             
-                                            </h6> 
-                                        </li>
-                                    </c:if>
-                                    
+                                    </li>                                   
                                 </a>
+                                <c:if test="#{not empty sessionScope.user.nome}">
+                                    <li> 
+                                        <h6> 
+                                            <h:form>
+                                                <h:commandLink value="Sair" action="#{login.sair}" />
+                                            </h:form>                                             
+                                        </h6> 
+                                    </li>
+                                </c:if>
                             </ul>                            
                         </div>
                         <div class="column column-4">                            
@@ -74,7 +72,7 @@
                     </div>
                 </div>
                 <div class="column column-3 esp-topo">
-                    <div class="">
+                    <div>
                         <h5 class=" column-7 centro acomoda esp-baixoM">#{loja.produto.nome}</h5>
                         <p class=" column-10 centro acomoda esp-baixoG">#{loja.produto.descricao}</p>
                         <h:form>

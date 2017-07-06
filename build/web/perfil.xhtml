@@ -27,7 +27,7 @@
                     <nav id="MenuU" class="row acomoda">
                         <div  class="column column-8">                            
                             <ul> 
-                                <a href="#{empty sessionScope.user ? 'perfil.xhtml' : 'index.xhtml'}">
+                                <a href="#{empty sessionScope.user ? 'index.xhtml':'perfil.xhtml'}">
                                     <li> <img src="img/icon_user.png" /> </li>
                                     <li> 
                                         <h6> 
@@ -38,18 +38,17 @@
                                                 Login
                                             </c:if>                                             
                                         </h6> 
-                                    </li>
-                                    <c:if test="#{not empty sessionScope.user.nome}">
-                                        <li> 
-                                            <h6> 
-                                                <h:form>
-                                                    <h:commandLink value="Sair" action="#{login.sair}" />
-                                                </h:form>                                             
-                                            </h6> 
-                                        </li>
-                                    </c:if>
-                                    
+                                    </li>                                   
                                 </a>
+                                <c:if test="#{not empty sessionScope.user.nome}">
+                                    <li> 
+                                        <h6> 
+                                            <h:form>
+                                                <h:commandLink value="Sair" action="#{login.sair}" />
+                                            </h:form>                                             
+                                        </h6> 
+                                    </li>
+                                </c:if>
                             </ul>                            
                         </div>
                         <div class="column column-4">                            
@@ -72,9 +71,11 @@
                             <ul class="cinza">                                
                                 <li id="MenuPerfil" class="menu_tab"><a href="#">Perfil</a></li>
                                 <li id="MenuCompras" class="menu_tab"><a href="#">Compras</a></li>
-                                <li id="MenuRelatorios" class="menu_tab"><a href="#">Relatorios</a></li>
-                                <li id="MenuUsuarios" class="menu_tab"><a href="#">Usuarios</a></li>
-                                <li id="MenuEstoque" class="menu_tab"><a href="#">Estoque</a></li>
+                                <c:if test="#{sessionScope.user.admin}">
+                                    <li id="MenuRelatorios" class="menu_tab"><a href="#">Relatorios</a></li>
+                                    <li id="MenuUsuarios" class="menu_tab"><a href="#">Usuarios</a></li>
+                                    <li id="MenuEstoque" class="menu_tab"><a href="#">Estoque</a></li>
+                                </c:if>
                             </ul>
                         </nav>                        
                     </div>
@@ -84,34 +85,35 @@
                     <div class="column column-2"></div>
                     <div class="column column-8">
                         <div id="Perfil" class="tab">
-                            <h2>Perfil</h2>
-                            <p>Nome: Nome usuario aqui</p>
-                            <p>Email: Usuario@gmail.com</p>
-                            <p>CPF: 000.000.000-00</p>
-                            <p>Telefone: 85 90000-0000</p>
-                            <p>Login: admin</p>
-                            <p>Senha: 12345</p>
+                            <h2 class="esp-baixoG">Perfil</h2>
+                            <p class="esp-baixoM">Nome: <h:outputText value="#{sessionScope.user.nome}" /></p>
+                            <p class="esp-baixoM">Email: <h:outputText value="#{sessionScope.user.email}" /></p>
+                            <p class="esp-baixoM">CPF: <h:outputText value="#{sessionScope.user.cpf}" /></p>
+                            <p class="esp-baixoM">Telefone: <h:outputText value="#{sessionScope.user.telefone.pegarTelefone()}" /></p>
+                            <p class="esp-baixoM">Login: <h:outputText value="#{sessionScope.user.login}" /></p>
+                            <p class="esp-baixoM">Senha: <h:outputText value="#{sessionScope.user.senha}" /></p>
                         </div>
 
                         <div id="Compras" class="tab" style="display:none">
-                            <h2>Compras</h2>
+                            <h2 class="esp-baixoG">Compras</h2>
 
                         </div>
 
-                        <div id="Relatorios" class="tab" style="display:none">
-                            <h2>Relatorios</h2>
+                        <c:if test="#{sessionScope.user.admin}">
+                            <div id="Relatorios" class="tab" style="display:none">
+                                <h2 class="esp-baixoG">Relatorios</h2>
+                            </div>
 
-                        </div>
+                            <div id="Usuarios" class="tab" style="display:none">
+                                <h2 class="esp-baixoG">Usuarios</h2>
+                                <p>Tokyo is the capital of Japan.</p>
+                            </div>
 
-                        <div id="Usuarios" class="tab" style="display:none">
-                            <h2>Usuarios</h2>
-                            <p>Tokyo is the capital of Japan.</p>
-                        </div>
-
-                        <div id="Estoque" class="tab" style="display:none">
-                            <h2>Estoque</h2>
-                            <p>Tokyo is the capital of Japan.</p>
-                        </div>
+                            <div id="Estoque" class="tab" style="display:none">
+                                <h2 class="esp-baixoG">Estoque</h2>
+                                <p>Tokyo is the capital of Japan.</p>
+                            </div>
+                        </c:if>
                     </div>
                     <div class="column column-2"></div>
                 </div>                    
