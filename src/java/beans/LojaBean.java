@@ -11,11 +11,25 @@ public class LojaBean {
     private Produto produto;
     
     public String vemLoja(){
-        produtos = new ArrayList<Produto>();        
+        produtos = gerarProduto();
+        SessionContext.getInstance().setAttribute("listaProdutos", produtos);
+        return "entrou";
+    }
+    
+    public String vemProduto(Produto p){
+        setProduto(p);
+        SessionContext.getInstance().setAttribute("produto", produto);
+        return "acesso";
+    }
+    
+    public List<Produto> gerarProduto(){
+        List<Produto> produtosExe = new ArrayList<Produto>();        
+        
         Categoria c = new Categoria();
         c.setId(0);
         c.setNome("Camisa");
         c.setDescricao("Camisa bem bacana");        
+        
         for(int i=0;i<37;i++){            
             Produto p = new Produto();
             if(i%2 == 0){
@@ -33,16 +47,9 @@ public class LojaBean {
                 p.setDescricao("Brusinha na cor FireBrick, bem legal bem bacana para você");
                 p.setImg("img/camisa.jpg");  
             }
-            produtos.add(p);
+            produtosExe.add(p);
         }
-        SessionContext.getInstance().setAttribute("listaProdutos", produtos);
-        return "entrou";
-    }
-    
-    public String vemProduto(Produto p){
-        setProduto(p);
-        SessionContext.getInstance().setAttribute("produto", produto);
-        return "acesso";
+        return produtosExe;
     }
     
     public List<Produto> getProdutos() { return produtos; }

@@ -78,7 +78,7 @@
                         <h:form>
                             <div class="column-7 centro acomoda">                                
                                 <p class="esp-baixoP">Escolha o tamanho: </p>
-                                <h:selectOneMenu styleClass="esp-baixoG" value="">
+                                <h:selectOneMenu styleClass="esp-baixoG" value="carrinho.tamanho">
                                     <f:selectItem itemValue="P" itemLabel="P" />
                                     <f:selectItem itemValue="M" itemLabel="M" />
                                     <f:selectItem itemValue="G" itemLabel="G" />
@@ -92,8 +92,10 @@
                             
                             <h4 class="centro esp-baixoG">#{loja.produto.preco}</h4>
                             
+                            <h:inputHidden id="quantidade" value="#{carrinho.quantidade}" />
+                            
                             <div class="acomoda col-6"> 
-                                <h:commandButton class="botaoB" value="Adicionar à sacola"/>
+                                <h:commandButton class="botaoB" value="Adicionar à sacola" action="carrinho.adicionarAoCarrinho()"/>
                             </div>
                         </h:form>								
                     </div>
