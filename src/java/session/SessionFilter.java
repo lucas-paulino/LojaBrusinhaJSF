@@ -13,15 +13,17 @@ import objetos.Usuario;
 
 public class SessionFilter implements Filter{
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-    
-    }
+    public void init(FilterConfig filterConfig) throws ServletException {  }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;        
         String uri = httpServletRequest.getRequestURI();
-        System.out.println("URL:" + uri);        
+        System.out.println("URL:" + uri);  
+        if(uri.endsWith(".css")|| uri.endsWith(".jpg")|| uri.endsWith(".png")){
+            chain.doFilter(request,response);
+            return;
+        }
         if (uri != null
                 && (uri.equals("/JSFSession/")
                 || uri.equals("/JSFSession/index.xhtml")
@@ -42,7 +44,5 @@ public class SessionFilter implements Filter{
     }
 
     @Override
-    public void destroy() {
-    
-    }  
+    public void destroy() { }  
 }
