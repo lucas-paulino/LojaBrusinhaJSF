@@ -68,17 +68,17 @@
                 <div class="column column-2"></div>
                 <div class="column column-5">
                     <div class="">
-                        <img src="#{loja.produto.img}" />
+                        <img src="#{sessionScope.produto.img}" />
                     </div>
                 </div>
                 <div class="column column-3 esp-topo">
                     <div>
-                        <h5 class=" column-7 centro acomoda esp-baixoM">#{loja.produto.nome}</h5>
-                        <p class=" column-10 centro acomoda esp-baixoG">#{loja.produto.descricao}</p>
+                        <h5 class=" column-7 centro acomoda esp-baixoM">#{sessionScope.produto.nome}</h5>
+                        <p class=" column-10 centro acomoda esp-baixoG">#{sessionScope.produto.descricao}</p>
                         <h:form>
                             <div class="column-7 centro acomoda">                                
                                 <p class="esp-baixoP">Escolha o tamanho: </p>
-                                <h:selectOneMenu styleClass="esp-baixoG" value="carrinho.tamanho">
+                                <h:selectOneMenu styleClass="esp-baixoG" binding="#{carrinho.tamanho}">
                                     <f:selectItem itemValue="P" itemLabel="P" />
                                     <f:selectItem itemValue="M" itemLabel="M" />
                                     <f:selectItem itemValue="G" itemLabel="G" />
@@ -86,16 +86,13 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="column-7 centro acomoda">
-                                <p class="esp-baixoP">Quantidade:</p>
-                                <input class="esp-baixoGG col-4" type="number" name="quantidade" min="1" value="1" />                           
+                                <p class="esp-baixoP">Quantidade:</p>                                                  
                             </div>
                             
-                            <h4 class="centro esp-baixoG">#{loja.produto.preco}</h4>
-                            
-                            <h:inputHidden id="quantidade" value="#{carrinho.quantidade}" />
+                            <h4 class="centro esp-baixoG">#{sessionScope.produto.preco}</h4>
                             
                             <div class="acomoda col-6"> 
-                                <h:commandButton class="botaoB" value="Adicionar à sacola" action="carrinho.adicionarAoCarrinho()"/>
+                                <h:commandButton class="botaoB" value="Adicionar à sacola" action="#{carrinho.adicionarAoCarrinho(sessionScope.produto)}"/>
                             </div>
                         </h:form>								
                     </div>

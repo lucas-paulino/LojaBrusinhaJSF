@@ -78,7 +78,8 @@ footer{
 
 input[type="text"], input[type="password"]{
     display: block;
-    margin: 8px 0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     border: none;
     padding: 4px 6px;
 }
@@ -93,7 +94,7 @@ img{ width: 100%; }
 
 .centro{ text-align: center; }
 
-.acomoda{ margin: 0px auto; }
+.acomoda{ margin: 0px auto ;}
 
 .teto{ padding: 20px 0px; }
 
@@ -173,9 +174,14 @@ img{ width: 100%; }
     text-align: center;
 }
 
-.borda{ border: 1px solid #151515;}
+.borda{ border: 1px solid #151515 !important;}
 
 #conteudo{ margin-bottom: 170px }
+
+.box-quant{
+    width: 45px;
+    padding: 0px 0px 0px 5px;
+}
 
 @media only screen and (max-width: 550px) {
     #conteudo{ margin-bottom: 358px }
