@@ -69,24 +69,25 @@
                 <div class="column column-2"></div>
                 <div class="column column-8">
                     <h4 class="esp-baixoG">Sacola de compras</h4>
-                    <c:if test="#{not empty sessionScope.carrinho}">
-                        <ui:repeat value="#{sessionScope.carrinho}" var="i">
+                    <c:if test="#{not empty sessionScope.itens}">
+                        <ui:repeat value="#{sessionScope.itens}" var="item">
                             <div class="row item-carrinho">
-                                <div class="column column-2"> <img src="#{i.produto.img}" /> </div>
+                                <div class="column column-2"> <img src="#{item.produto.img}" /> </div>
                                 <div class="column column-7">
-                                    <p class="esp-baixoM">#{i.produto.nome}</p>
+                                    <p class="esp-baixoM">#{item.produto.nome}</p>
+                                    <p class="esp-baixoM">#{item.tamanho}</p>
                                     <ul class="esp-baixoM">
                                         <li><a href="#">Excluir</a></li>
                                         <li>
                                             Quantidade:
-                                            <h:inputText style="display: inline-block" class="box-quant borda" value="#{i.quantidade}" rendered="true"> 
+                                            <h:inputText style="display: inline-block" class="box-quant borda" value="#{item.quantidade}" rendered="true"> 
                                                 <f:convertNumber integerOnly="true"/>
                                             </h:inputText>                                            
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="column column-3">
-                                    <h5 class="sem-negrito esp-baixoM">Unidade: #{i.produto.preco}</h5>
+                                    <h5 class="sem-negrito esp-baixoM">Unidade: #{item.produto.preco}</h5>
                                     <h5 class="sem-negrito esp-baixoM">Sub-total: </h5>
                                 </div>
                             </div>

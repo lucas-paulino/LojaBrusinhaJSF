@@ -86,7 +86,10 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="column-7 centro acomoda">
-                                <p class="esp-baixoP">Quantidade:</p>                                                  
+                                <p class="esp-baixoP">Quantidade:</p>
+                                <h:inputText class="box-quant borda" value="#{carrinho.quantidade}" required="true"> 
+                                    <f:convertNumber integerOnly="true"/>
+                                </h:inputText>
                             </div>
                             
                             <h4 class="centro esp-baixoG">#{sessionScope.produto.preco}</h4>
