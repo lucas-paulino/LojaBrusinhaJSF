@@ -3,8 +3,19 @@ package objetos;
 public class ItemCarrinho {
     private Produto produto;
     private String tamanho;
-    private String quantidade;
+    private String quantidade;    
+    
+    public Double valorSubTotal(){
+        double result = 0;
+        String p = produto.getPreco().replace(",", ".");
+        result = Integer.parseInt(quantidade) * Double.parseDouble(p);
+        return result;
+    }
 
+    public String txtSubTotal(){        
+        return Double.toString(valorSubTotal()).replace(".", ",");
+    }
+    
     public Produto getProduto() { return produto; }
     public void setProduto(Produto produto) { this.produto = produto; }
 

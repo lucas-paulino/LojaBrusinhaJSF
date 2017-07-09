@@ -11,20 +11,20 @@ public class CarrinhoBean {
     private List<ItemCarrinho> itens;
     private HtmlSelectOneMenu tamanho;
     private String quantidade;
-    private Produto produto;    
+    private Produto produto;
     
-    public String adicionarAoCarrinho(Produto p){       
+    public String adicionarAoCarrinho(Produto p){               
         produto = new Produto();
         this.produto = p;
         
-        System.out.println("Tamanho Aqui: " + tamanho.getValue().toString());
+        double total = 0;
         
         ItemCarrinho item = new ItemCarrinho();
         item.setProduto(produto);
         item.setTamanho(tamanho.getValue().toString());
-        item.setQuantidade(quantidade);    
+        item.setQuantidade(quantidade);  
         
-        itens = (List<ItemCarrinho>) SessionContext.getInstance().getAttribute("carrinho");
+        itens = (List<ItemCarrinho>) SessionContext.getInstance().getAttribute("itens");
         
         if(itens == null){
             itens = new ArrayList<ItemCarrinho>();
@@ -32,8 +32,15 @@ public class CarrinhoBean {
         this.itens.add(item);
         SessionContext.getInstance().setAttribute("itens", itens);
         
+        for( ItemCarrinho i : itens ){
+            total += i.valorSubTotal();            
+        }
+        System.out.println("Total: "+total);
+        System.out.println("------------------------------------------");
+        SessionContext.getInstance().setAttribute("totalCarrinho", total);
         return "addcarrinho";
     }
+    
 
     public List<ItemCarrinho> getItens() { return itens; }
     public void setItens(List<ItemCarrinho> itens) { this.itens = itens; }

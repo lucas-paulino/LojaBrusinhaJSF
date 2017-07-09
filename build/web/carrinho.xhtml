@@ -57,7 +57,7 @@
                             <ul>
                                 <a href="carrinho.xhtml">                              
                                     <li> <img src="img/icon_saco.png" /> </li>
-                                    <li> <h6>00</h6> </li>
+                                    <li> <h6>#{sessionScope.itens.size()}</h6> </li>
                                 </a>
                             </ul>                           
                         </div>
@@ -75,7 +75,7 @@
                                 <div class="column column-2"> <img src="#{item.produto.img}" /> </div>
                                 <div class="column column-7">
                                     <p class="esp-baixoM">#{item.produto.nome}</p>
-                                    <p class="esp-baixoM">#{item.tamanho}</p>
+                                    <p class="esp-baixoM">Tamanho: #{item.tamanho}</p>
                                     <ul class="esp-baixoM">
                                         <li><a href="#">Excluir</a></li>
                                         <li>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="column column-3">
                                     <h5 class="sem-negrito esp-baixoM">Unidade: #{item.produto.preco}</h5>
-                                    <h5 class="sem-negrito esp-baixoM">Sub-total: </h5>
+                                    <h5 class="sem-negrito esp-baixoM">Sub-total: #{item.txtSubTotal()}</h5>
                                 </div>
                             </div>
                         </ui:repeat>
@@ -98,7 +98,7 @@
                     <div class="row esp-cimaG">
                         <div class="column column-9"></div>
                         <div class="column column-3">
-                            <h5>Total: -</h5>
+                            <h5>Total: #{sessionScope.totalCarrinho}</h5>
                             <input class="botaoB full negrito borda esp-cimaG" type="submit" name="finalizar_compra" value="Finalizar compra" />
                         </div>
                     </div>
