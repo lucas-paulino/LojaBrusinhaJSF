@@ -15,7 +15,6 @@ public class LoginBean {
             Telefone tel = new Telefone();
             tel.setDdd("00");
             tel.setNumero("000000000");
-            System.out.println("passou aqui");
             setSenha("123");
             Usuario user = new Usuario();
             user.setId(0);

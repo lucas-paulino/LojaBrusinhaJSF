@@ -61,7 +61,7 @@
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>        
+        </navigation-case>                              
         <navigation-case>
             <from-outcome>erro</from-outcome>
             <to-view-id>/cadastro.xhtml</to-view-id>
@@ -73,7 +73,11 @@
         <navigation-case>
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>        
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>atualiza</from-outcome>
+            <to-view-id>/cadastro.xhtml</to-view-id>
+        </navigation-case>           
     </navigation-rule>
     
     <navigation-rule>
@@ -103,7 +107,32 @@
     </navigation-rule> 
     
     <navigation-rule>
-        <from-view-id>/carrinho.xhtml</from-view-id>                        
+        <from-view-id>/carrinho.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>removido</from-outcome>
+            <to-view-id>/carrinho.xhtml</to-view-id>
+        </navigation-case> 
+        
+        <navigation-case>
+            <from-outcome>semUser</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case> 
+        
+        <navigation-case>
+            <from-outcome>deuCerto</from-outcome>
+            <to-view-id>/perfil.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>vazio</from-outcome>
+            <to-view-id>/loja.xhtml</to-view-id>
+        </navigation-case>   
+        
+        <navigation-case>
+            <from-outcome>AdminNaoCompra</from-outcome>
+            <to-view-id>/carrinho.xhtml</to-view-id>
+        </navigation-case>
+                                                        
         <navigation-case>
             <from-outcome>saiu</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>

@@ -57,7 +57,7 @@
                             <ul>
                                 <a href="carrinho.xhtml">                              
                                     <li> <img src="img/icon_saco.png" /> </li>
-                                    <li> <h6>#{sessionScope.itens.size()}</h6> </li>
+                                    <li> <h6>#{empty sessionScope.itens ? '00':sessionScope.itens.size()}</h6> </li>
                                 </a>
                             </ul>                           
                         </div>
@@ -77,12 +77,17 @@
                                     <p class="esp-baixoM">#{item.produto.nome}</p>
                                     <p class="esp-baixoM">Tamanho: #{item.tamanho}</p>
                                     <ul class="esp-baixoM">
-                                        <li><a href="#">Excluir</a></li>
+                                        
                                         <li>
-                                            Quantidade:
-                                            <h:inputText style="display: inline-block" class="box-quant borda" value="#{item.quantidade}" rendered="true"> 
+                                            <h:form>
+                                                <h:commandLink value="Excluir" action="#{carrinho.removerdoCarrinho(item)}" />                                         
+                                            </h:form>
+                                        </li>
+                                        <li>
+                                            Quantidade: #{item.quantidade}
+                                            <!--<h:inputText style="display: inline-block" class="box-quant borda" value="#{item.quantidade}" rendered="true"> 
                                                 <f:convertNumber integerOnly="true"/>
-                                            </h:inputText>                                            
+                                            </h:inputText>-->                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -92,16 +97,23 @@
                                 </div>
                             </div>
                         </ui:repeat>
+                        <div class="row esp-cimaG">
+                            <div class="column column-9">
+                                <div class="messagem centro">
+                                    <h:outputText value="#{carrinho.mensagemCarrinho}"/><br/>
+                                </div>
+                            </div>
+                            <div class="column column-3">
+                                <h5>Total: #{sessionScope.totalCarrinho}</h5>
+                                <h:form>
+                                    <h:commandButton class="botaoB full negrito borda esp-cimaG" value="Finalizar compra" action="#{carrinho.finalizarVenda()}" />
+                                </h:form>                            
+                            </div>
+                        </div>                    
                     </c:if>
-                    
-                    
-                    <div class="row esp-cimaG">
-                        <div class="column column-9"></div>
-                        <div class="column column-3">
-                            <h5>Total: #{sessionScope.totalCarrinho}</h5>
-                            <input class="botaoB full negrito borda esp-cimaG" type="submit" name="finalizar_compra" value="Finalizar compra" />
-                        </div>
-                    </div>
+                    <c:if test="#{empty sessionScope.itens}">
+                        <h5 class="centro sem-negrito">Tem nada não</h5>
+                    </c:if>
                 </div>
                 <div class="column column-2"></div>
             </div>
@@ -133,4 +145,17 @@
             </footer>
         </div>
     </h:body>
+    <script>
+        var m = document.getElementsByClassName("messagem")[0];
+        
+        function fecharMensagem() {
+            m.style.display = 'none';
+        }
+        
+        m.onclick = function(){ fecharMensagem() };        
+        
+        if(m.innerText == "\n"){
+            fecharMensagem();
+        }
+    </script>
 </html>

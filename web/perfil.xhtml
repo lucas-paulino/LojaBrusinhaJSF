@@ -55,7 +55,7 @@
                             <ul>
                                 <a href="carrinho.xhtml">                              
                                     <li> <img src="img/icon_saco.png" /> </li>
-                                    <li> <h6>#{sessionScope.itens.size()}</h6> </li>
+                                    <li> <h6>#{empty sessionScope.itens ? '00':sessionScope.itens.size()}</h6> </li>
                                 </a>
                             </ul>                           
                         </div>
@@ -70,7 +70,9 @@
                         <nav id="MenuP" class="column-7 acomoda">
                             <ul class="cinza">                                
                                 <li id="MenuPerfil" class="menu_tab"><a href="#">Perfil</a></li>
-                                <li id="MenuCompras" class="menu_tab"><a href="#">Compras</a></li>
+                                <c:if test="#{sessionScope.user.admin == false}">
+                                    <li id="MenuCompras" class="menu_tab"><a href="#">Compras</a></li>
+                                </c:if>
                                 <c:if test="#{sessionScope.user.admin}">
                                     <li id="MenuRelatorios" class="menu_tab"><a href="#">Relatorios</a></li>
                                     <li id="MenuUsuarios" class="menu_tab"><a href="#">Usuarios</a></li>
@@ -85,7 +87,19 @@
                     <div class="column column-2"></div>
                     <div class="column column-8">
                         <div id="Perfil" class="tab">
-                            <h2 class="esp-baixoG">Perfil</h2>
+                            <div class="row branco esp-baixoG">
+                                <div class="column column-9"> <h2>Perfil</h2> </div>
+                                <div class="column column-1"> 
+                                    <h6>
+                                        <h:form>
+                                            <h:commandLink  value="Editar" action="#{cadastro.atualizar()}"/>
+                                        </h:form>
+                                    </h6> 
+                                </div>
+                                <div class="column column-2"> 
+                                    <h6><a href="#">Excluir Conta</a></h6> 
+                                </div>
+                            </div>
                             <p class="esp-baixoM">Nome: <h:outputText value="#{sessionScope.user.nome}" /></p>
                             <p class="esp-baixoM">Email: <h:outputText value="#{sessionScope.user.email}" /></p>
                             <p class="esp-baixoM">CPF: <h:outputText value="#{sessionScope.user.cpf}" /></p>
@@ -106,12 +120,10 @@
 
                             <div id="Usuarios" class="tab" style="display:none">
                                 <h2 class="esp-baixoG">Usuarios</h2>
-                                <p>Tokyo is the capital of Japan.</p>
                             </div>
 
                             <div id="Estoque" class="tab" style="display:none">
                                 <h2 class="esp-baixoG">Estoque</h2>
-                                <p>Tokyo is the capital of Japan.</p>
                             </div>
                         </c:if>
                     </div>

@@ -4,11 +4,23 @@ var tabsRela = document.getElementById("MenuRelatorios");
 var tabsUsers = document.getElementById("MenuUsuarios");
 var tabsEstoq = document.getElementById("MenuEstoque");
 
+if(tabsCompras != null){
+    tabsCompras.onclick = function(){ openTab('Compras'); }; ;
+}
+
+if(tabsRela != null){
+    tabsRela.onclick = function(){ openTab('Relatorios'); }; ;
+}
+
+if(tabsUsers != null){
+    tabsUsers.onclick = function(){ openTab('Usuarios'); }; ;
+}
+
+if(tabsEstoq != null){
+    tabsEstoq.onclick = function(){ openTab('Estoque'); }; ;
+}
+
 tabsPerfil.onclick = function(){ openTab('Perfil'); }; ;
-tabsCompras.onclick = function(){ openTab('Compras'); }; ;
-tabsRela.onclick = function(){ openTab('Relatorios'); }; ;
-tabsUsers.onclick = function(){ openTab('Usuarios'); }; ;
-tabsEstoq.onclick = function(){ openTab('Estoque'); }; ;
 
 function openTab(cityName) {
     var i;

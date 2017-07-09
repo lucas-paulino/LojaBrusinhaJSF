@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Perfil - Loja</title>        
+        <title>Loja - Brusinha </title>        
         <link rel="stylesheet" type="text/css" href="css/grid.css" />
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />  
     </h:head>
@@ -56,7 +56,7 @@
                             <ul>
                                 <a href="carrinho.xhtml">                              
                                     <li> <img src="img/icon_saco.png" /> </li>
-                                    <li> <h6>#{sessionScope.itens.size()}</h6> </li>
+                                    <li> <h6>#{empty sessionScope.itens ? '00':'sessionScope.itens.size()'}</h6> </li>
                                 </a>
                             </ul>                           
                         </div>

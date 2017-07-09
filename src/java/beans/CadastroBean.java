@@ -1,5 +1,8 @@
 package beans;
 
+import objetos.Usuario;
+import session.SessionContext;
+
 public class CadastroBean {
     private int id;
     private String nome;
@@ -14,6 +17,21 @@ public class CadastroBean {
     public String cadastrar(){
         mensagemCadastro = "Cadastro bem sucedido";
         return "sucesso";
+    }
+    
+    public String atualizar(){
+        
+        Usuario u = new Usuario();
+        u = (Usuario) SessionContext.getInstance().getAttribute("user");
+                
+        nome = u.getNome();
+        cpf = u.getCpf();
+        email = u.getEmail();
+        login = u.getLogin();
+        senha = u.getSenha();
+        telefone = getTelefone();
+        
+        return "atualiza";
     }
     
     //Metodos Get e Set
