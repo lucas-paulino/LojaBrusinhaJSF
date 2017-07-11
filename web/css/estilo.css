@@ -185,6 +185,8 @@ img{ width: 100%; }
     padding: 0px 0px 0px 5px;
 }
 
+.na-linha{ display: inline !important; margin-right: 10px;}
+
 @media only screen and (max-width: 550px) {
     #conteudo{ margin-bottom: 358px }
     

@@ -29,6 +29,12 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean> 
     
+    <managed-bean>
+        <managed-bean-name>estoque</managed-bean-name>
+        <managed-bean-class>beans.EstoqueBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
     //Navegação das páginas
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>                
@@ -67,6 +73,7 @@
         <navigation-case>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/perfil.xhtml</to-view-id>
+            <redirect>true</redirect>
         </navigation-case>       
     </navigation-rule>
     
@@ -80,6 +87,12 @@
             <from-outcome>atualiza</from-outcome>
             <to-view-id>/atualiza.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>estoqueAtualizado</from-outcome>
+            <to-view-id>/perfil.xhtml</to-view-id>
+        </navigation-case>
+        
         <navigation-case>
             <from-outcome>excluido</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>

@@ -5,16 +5,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class VendaProduto {
     @Id
     @ManyToOne
+    @JoinColumn(name = "venda_id")
     private Venda venda;
     
     @Id
     @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Produto produto;
     
     @Column (nullable=false)

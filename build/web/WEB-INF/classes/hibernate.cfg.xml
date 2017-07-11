@@ -18,8 +18,8 @@
     <mapping class="objetos.Produto"></mapping>
     <mapping class="objetos.Categoria"></mapping>
     <mapping class="objetos.Estoque"></mapping>
-    <!--<mapping class="objetos.Venda"></mapping>
-    <mapping class="objetos.VendaProduto"></mapping>-->
+    <mapping class="objetos.Venda"></mapping>
+    <mapping class="objetos.VendaProduto"></mapping>
 
   </session-factory>
 </hibernate-configuration>

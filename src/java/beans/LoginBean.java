@@ -1,11 +1,8 @@
 package beans;
 
-import objetos.Categoria;
-import objetos.CategoriaDAO;
+import java.util.List;
 import objetos.Estoque;
 import objetos.EstoqueDAO;
-import objetos.Produto;
-import objetos.ProdutoDAO;
 import objetos.Usuario;
 import objetos.UsuarioDAO;
 import session.SessionContext;
@@ -16,9 +13,18 @@ public class LoginBean {
     private String mensagemLogin;
     
     public String logar(){
-        Usuario user = new UsuarioDAO(Usuario.class).getByLoginSenha(getLogin(), getSenha());        
+        Usuario user = new UsuarioDAO(Usuario.class).getByLoginSenha(getLogin(), getSenha());
         if( user != null ){              
             SessionContext.getInstance().setAttribute("user", user);
+            
+            if( user.isAdmin() ){
+                List<Usuario> todosUser = (List<Usuario>) new UsuarioDAO(Usuario.class).getAll();
+                SessionContext.getInstance().setAttribute("listaUser", todosUser);
+                
+                List<Estoque> estoque = (List<Estoque>) new EstoqueDAO(Estoque.class).getAll();
+                SessionContext.getInstance().setAttribute("listaEstoque", estoque);
+            }
+            
             return "sucesso";            
         }else{ 
             setMensagemLogin("Login ou senha incorretos");

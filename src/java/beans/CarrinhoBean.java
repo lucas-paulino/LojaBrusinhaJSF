@@ -8,8 +8,10 @@ import objetos.ItemCarrinho;
 import objetos.Produto;
 import objetos.Usuario;
 import objetos.Venda;
+import objetos.VendaDAO;
 import objetos.VendaProduto;
 import session.SessionContext;
+import util.GenericDAO;
 
 public class CarrinhoBean {
     private List<ItemCarrinho> itens;
@@ -70,12 +72,13 @@ public class CarrinhoBean {
                     setMensagemCarrinho("Administrador não pode faz compra");
                     return "AdminNaoCompra";
                 }else{
-                    /*Date data = new Date();
+                    Date data = new Date();
                     Venda venda = new Venda();
-                    venda.setId(1);
                     venda.setComprador(u);
                     venda.setData(data);
-                    //List<VendaProduto> vendaProduto = new ArrayList<VendaProduto>();
+                    GenericDAO<Venda> v = new VendaDAO(Venda.class);
+                    v.save(venda);
+                    /*List<VendaProduto> vendaProduto = new ArrayList<VendaProduto>();
                     for( ItemCarrinho i : itens ){
                         VendaProduto vp = new VendaProduto();
                         vp.setVenda(venda);
@@ -86,6 +89,8 @@ public class CarrinhoBean {
                     }*/
                     System.out.println("Deu certo");
                     
+                    List<ItemCarrinho> limpa = new ArrayList<ItemCarrinho>(); 
+                    SessionContext.getInstance().setAttribute("itens", limpa);
                     return "deuCerto";
                 }                
             }                
@@ -93,7 +98,9 @@ public class CarrinhoBean {
             return "vazio";
         }
     }
-            
+    
+    
+    
     public List<ItemCarrinho> getItens() { return itens; }
     public void setItens(List<ItemCarrinho> itens) { this.itens = itens; }
 

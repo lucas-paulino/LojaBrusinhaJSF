@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.List;
 import objetos.Usuario;
 import objetos.UsuarioDAO;
 import session.SessionContext;
@@ -24,7 +25,7 @@ public class CadastroBean {
         u.setLogin(login);
         u.setSenha(senha); 
         u.setTelefone(telefone);
-        u.setAdmin(admin);        
+        u.setAdmin(false);        
         
         GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
         user.save(u);
@@ -33,7 +34,7 @@ public class CadastroBean {
         return "sucesso";
     }
     
-    public String atualiza(){
+    public String atualiza(Usuario admini){
         Usuario u = new Usuario();     
         u.setId(id);
         u.setNome(nome);
@@ -41,19 +42,24 @@ public class CadastroBean {
         u.setEmail(email);
         u.setLogin(login);
         u.setSenha(senha); 
-        u.setTelefone(telefone);
-        u.setAdmin(admin);
+        u.setTelefone(telefone);        
         
+        if( admini.getId() == u.getId() ){
+            u.setAdmin(true);
+            SessionContext.getInstance().setAttribute("user", u);
+        }
+        
+        List<Usuario> todosUser = (List<Usuario>) new UsuarioDAO(Usuario.class).getAll();
+        SessionContext.getInstance().setAttribute("listaUser", todosUser);
+               
         GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
         user.update(u);
-        
-        SessionContext.getInstance().setAttribute("user", u);
+                      
         mensagemCadastro = "Atualização bem sucedida";
         return "sucesso";
     }
     
-    public String atualizar(){        
-        Usuario u = (Usuario) SessionContext.getInstance().getAttribute("user");
+    public String atualizar(Usuario u){        
         id = u.getId();
         nome = u.getNome();
         telefone = u.getTelefone();

@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Perfil - Brusinha</title>        
@@ -92,7 +94,7 @@
                                 <div class="column column-1"> 
                                     <h6>
                                         <h:form>
-                                            <h:commandLink  value="Editar" action="#{cadastro.atualizar()}"/>
+                                            <h:commandLink  value="Editar" action="#{cadastro.atualizar(sessionScope.user)}"/>
                                         </h:form>
                                     </h6> 
                                 </div>
@@ -124,10 +126,44 @@
 
                             <div id="Usuarios" class="tab" style="display:none">
                                 <h2 class="esp-baixoG">Usuarios</h2>
+                                
+                                <ui:repeat value="#{sessionScope.listaUser}" var="u">
+                                    <div class="row branco esp-baixoM item-carrinho">
+                                        <div class="column column-8"> <p>#{u.nome}</p> </div>
+                                        <div class="column column-2"> 
+                                            <h6>
+                                                <h:form>
+                                                    <h:commandLink  value="Editar" action="#{cadastro.atualizar(u)}"/>
+                                                </h:form>
+                                            </h6> 
+                                        </div>
+                                        <div class="column column-2"> 
+                                            <h6>
+                                                <h:form>
+                                                    <h:commandLink  value="Excluir" action="#{cadastro.ExcluirConta(u)}"/>
+                                                </h:form>
+                                            </h6> 
+                                        </div>
+                                    </div>
+                                    <div class="column column-9"></div>
+                                </ui:repeat>
                             </div>
 
                             <div id="Estoque" class="tab" style="display:none">
                                 <h2 class="esp-baixoG">Estoque</h2>
+                                <ui:repeat value="#{sessionScope.listaEstoque}" var="e">
+                                    <div class="row branco esp-baixoM item-carrinho">
+                                    <h:form>
+                                        <div class="column column-2"> <p>#{e.id}</p> </div>
+                                        <div class="column column-5"> <p>#{e.produto.nome}</p> </div>
+                                        <div class="column column-5"> 
+                                            <p class="na-linha">Quantidade: #{e.quantidade}</p>  
+                                        </div>
+                                        
+                                    </h:form>
+                                    </div>
+                                    <div class="column column-9"></div>
+                                </ui:repeat>                                
                             </div>
                         </c:if>
                     </div>
@@ -161,6 +197,6 @@
                 </div>
             </footer>
         </div>
-        <script type="text/javascript" src="js/tabs.js"></script>
+        <script type="text/javascript" src="js/tabs.js"></script>        
     </h:body>
 </html>

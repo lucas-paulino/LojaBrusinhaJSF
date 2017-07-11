@@ -2,11 +2,9 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.List;
-import objetos.Categoria;
 import objetos.Estoque;
 import objetos.EstoqueDAO;
 import objetos.Produto;
-import objetos.ProdutoDAO;
 import session.SessionContext;
 
 public class LojaBean {

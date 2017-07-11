@@ -47,9 +47,6 @@
                             <h:inputText class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
                         </c:if>
                         
-                        <h:selectBooleanCheckbox id="admin" value="#{cadastro.admin}"/>
-                        <h:outputLabel style="padding-left: 15px;" value="Administrador" for="admin"/><br/><br/>
-                        
                         <div class="acomoda column-5 esp-baixoG esp-cimaG">
                             <h:commandButton class="botaoP column-12" value="Enviar" action="#{cadastro.cadastrar}"/>
                         </div>
