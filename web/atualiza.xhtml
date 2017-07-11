@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Atualiza - Brusinha</title>        
+        <link rel="stylesheet" type="text/css" href="css/grid.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    </h:head>
+    <h:body>
+        <div id="conteiner" class="preto">
+            <header class="row esp-topo esp-baixoGG">
+                <div class="column column-4"></div>
+                <div class="column column-4"><div class="column-8 acomoda"><a href="index.xhtml"><img src="img/logo_brusinha.png" alt="Logo brusinha"/></a></div></div>
+                <div class="column column-4"></div>
+            </header>
+            
+            <div id="conteudo" class="row esp-baixoGG">
+                <div class="column column-4"></div>
+                <div class="column column-4">
+                    <h3 class="centro sem-negrito">Cadastro</h3>
+                    <h:form >
+                        <h:inputHidden id="id" value="#{cadastro.id}" />
+                        
+                        <h:outputLabel value ="Nome: " for="nome"/><br/>
+                        <h:inputText class="full" id="nome" required="true" value="#{cadastro.nome}"/>
+
+                        <h:outputLabel value ="CPF: " for="cpf"/><br/>
+                        <h:inputText class="full" id="cpf" required="true" value="#{cadastro.cpf}"/>
+
+                        <h:outputLabel value ="Email: " for="email"/><br/>
+                        <h:inputText class="full" id="email" required="true" value="#{cadastro.email}"/>
+
+                        <h:outputLabel value ="Telefone:" for="telefone"/><br/>
+                        <h:inputText class="full" id="telefone" value="#{cadastro.telefone}"/>
+                       
+                        <h:outputLabel value ="Login: " for="login"/><br/>
+                        <h:inputText class="full" id="login" required="true" value="#{cadastro.login}"/>
+
+                        <h:outputLabel value ="Senha: " for="senha"/><br/>
+                        
+                        <c:if test="#{empty sessionScope.user}">
+                            <h:inputSecret class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
+                        </c:if>
+                        
+                        <c:if test="#{not empty sessionScope.user}">
+                            <h:inputText class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
+                        </c:if>
+                        
+                        <h:selectBooleanCheckbox id="admin" value="#{cadastro.admin}"/>
+                        <h:outputLabel style="padding-left: 15px;" value="Administrador" for="admin"/><br/><br/>
+                        
+                        <div class="acomoda column-5 esp-baixoG esp-cimaG">
+                            <h:commandButton class="botaoP column-12" value="Enviar" action="#{cadastro.atualiza()}"/>
+                        </div>
+                    </h:form >
+                </div>
+                <div class="column column-4"></div>
+            </div>
+            <footer class="row esp-topo">
+                <div class="column column-4 esp-baixoGG centro">
+                    <h4 class="esp-baixoM">85 00000-0000</h4>
+                    <h6 class="esp-baixoP">atendimento@brusinha.com.br</h6> 
+                    <h6>Resposta em até 24h nos dias úteis</h6>
+                </div>
+                <div class="column column-3 esp-baixoGG">
+                    <ul id="inf_brusinha">
+                        <li class="esp-baixoP centro"><a href="#">Sobre a brusinha</a></li>
+                        <li class="esp-baixoP centro"><a href="#">Nossas Lojas</a></li>
+                        <li class="esp-baixoP centro"><a href="#">FAQs</a></li>							
+                    </ul>
+                </div>
+                <div class="column column-5 esp-baixoGG">
+                    <center>
+                        <h6 class="esp-baixoM">Siga-nos nas redes:</h6>
+                        <ul class="redes-sociais">                        
+                            <li><a href="#"><img src="img/pinterest.png"/></a></li>
+                            <li><a href="#"><img src="img/twitter.png"/></a></li>
+                            <li><a href="#"><img src="img/instagram.png"/></a></li>
+                            <li><a href="#"><img src="img/facebook.png"/></a></li>                        
+                        </ul>
+                    </center>
+                </div>
+            </footer>
+        </div>
+    </h:body>
+</html>
+

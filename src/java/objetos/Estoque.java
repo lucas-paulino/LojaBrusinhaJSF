@@ -1,8 +1,23 @@
 package objetos;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Estoque {
+    @Id
+    @GeneratedValue
     private int id;
+    @Column (nullable=false)
     private int quantidade;
+    
+    @OneToOne
     private Produto produto;
 
     public int getId() { return id; }

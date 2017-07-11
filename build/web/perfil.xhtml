@@ -97,13 +97,17 @@
                                     </h6> 
                                 </div>
                                 <div class="column column-2"> 
-                                    <h6><a href="#">Excluir Conta</a></h6> 
+                                    <h6>
+                                        <h:form>
+                                            <h:commandLink  value="Excluir Conta" action="#{cadastro.ExcluirConta(sessionScope.user)}"/>
+                                        </h:form>
+                                    </h6> 
                                 </div>
                             </div>
                             <p class="esp-baixoM">Nome: <h:outputText value="#{sessionScope.user.nome}" /></p>
                             <p class="esp-baixoM">Email: <h:outputText value="#{sessionScope.user.email}" /></p>
                             <p class="esp-baixoM">CPF: <h:outputText value="#{sessionScope.user.cpf}" /></p>
-                            <p class="esp-baixoM">Telefone: <h:outputText value="#{sessionScope.user.telefone.pegarTelefone()}" /></p>
+                            <p class="esp-baixoM">Telefone: <h:outputText value="#{sessionScope.user.telefone}" /></p>
                             <p class="esp-baixoM">Login: <h:outputText value="#{sessionScope.user.login}" /></p>
                             <p class="esp-baixoM">Senha: <h:outputText value="#{sessionScope.user.senha}" /></p>
                         </div>

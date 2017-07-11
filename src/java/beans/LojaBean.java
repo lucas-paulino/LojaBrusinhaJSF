@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import objetos.Categoria;
 import objetos.Produto;
+import objetos.ProdutoDAO;
 import session.SessionContext;
 
 public class LojaBean {

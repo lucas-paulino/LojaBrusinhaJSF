@@ -1,11 +1,14 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.component.html.HtmlSelectOneMenu;
 import objetos.ItemCarrinho;
 import objetos.Produto;
 import objetos.Usuario;
+import objetos.Venda;
+import objetos.VendaProduto;
 import session.SessionContext;
 
 public class CarrinhoBean {
@@ -60,21 +63,33 @@ public class CarrinhoBean {
             u = (Usuario) SessionContext.getInstance().getAttribute("user");
             
             if(u == null){
-                System.out.println("Sem User");
                 setMensagemCarrinho("Faça login para finalizar a venda");
                 return "semUser";
             }else{         
                 if(u.isAdmin()){
-                    System.out.println("Admin Não Faz Compra");
                     setMensagemCarrinho("Administrador não pode faz compra");
                     return "AdminNaoCompra";
                 }else{
-                    System.out.println("Deu Certo");
+                    /*Date data = new Date();
+                    Venda venda = new Venda();
+                    venda.setId(1);
+                    venda.setComprador(u);
+                    venda.setData(data);
+                    //List<VendaProduto> vendaProduto = new ArrayList<VendaProduto>();
+                    for( ItemCarrinho i : itens ){
+                        VendaProduto vp = new VendaProduto();
+                        vp.setVenda(venda);
+                        vp.setProduto(i.getProduto());
+                        vp.setQuantidade(i.getQuantidade());
+                        vp.setTamanho(i.getTamanho());
+                        //vendaProduto.add(vp);
+                    }*/
+                    System.out.println("Deu certo");
+                    
                     return "deuCerto";
                 }                
             }                
         }else{
-            System.out.println("Carrinho Vazio");
             return "vazio";
         }
     }

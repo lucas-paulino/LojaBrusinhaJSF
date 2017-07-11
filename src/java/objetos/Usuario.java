@@ -1,13 +1,24 @@
 package objetos;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue
     private int id;
     private String nome;
+    @Column (nullable=false, unique=true)
     private String cpf;
     private String email;
+    @Column (nullable=false, unique=true)
     private String login;
+    @Column (nullable=false)
     private String senha;
-    private Telefone telefone;
+    private String telefone;
     private boolean admin;
     
     //Metodos Get e Set
@@ -28,9 +39,9 @@ public class Usuario {
 
         public String getSenha() { return senha; }
         public void setSenha(String senha) { this.senha = senha; }
-        
-        public Telefone getTelefone() { return telefone; }
-        public void setTelefone(Telefone telefone) { this.telefone = telefone; }
+
+        public String getTelefone() { return telefone; }
+        public void setTelefone(String telefone) { this.telefone = telefone; }
         
         public boolean isAdmin() { return admin; }
         public void setAdmin(boolean admin) { this.admin = admin; }

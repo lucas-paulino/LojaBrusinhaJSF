@@ -31,15 +31,22 @@
                         <h:outputLabel value ="Email: " for="email"/><br/>
                         <h:inputText class="full" id="email" required="true" value="#{cadastro.email}"/>
 
-                        <h:outputLabel value ="Telefone: " for="telefone"/><br/>
+                        <h:outputLabel value ="Telefone:" for="telefone"/><br/>
                         <h:inputText class="full" id="telefone" value="#{cadastro.telefone}"/>
-
+                       
                         <h:outputLabel value ="Login: " for="login"/><br/>
                         <h:inputText class="full" id="login" required="true" value="#{cadastro.login}"/>
 
                         <h:outputLabel value ="Senha: " for="senha"/><br/>
-                        <h:inputSecret class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
-
+                        
+                        <c:if test="#{empty sessionScope.user}">
+                            <h:inputSecret class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
+                        </c:if>
+                        
+                        <c:if test="#{not empty sessionScope.user}">
+                            <h:inputText class="full" id="senha" required="true" value ="#{cadastro.senha}"/><br/>
+                        </c:if>
+                        
                         <h:selectBooleanCheckbox id="admin" value="#{cadastro.admin}"/>
                         <h:outputLabel style="padding-left: 15px;" value="Administrador" for="admin"/><br/><br/>
                         

@@ -1,7 +1,16 @@
 package objetos;
 
-public class Categoria {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Categoria {        
+    @Id
+    @GeneratedValue
     private int id;
+    @Column (nullable=false)
     private String nome;
     private String descricao;
 

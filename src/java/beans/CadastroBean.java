@@ -1,7 +1,9 @@
 package beans;
 
 import objetos.Usuario;
+import objetos.UsuarioDAO;
 import session.SessionContext;
+import util.GenericDAO;
 
 public class CadastroBean {
     private int id;
@@ -15,29 +17,62 @@ public class CadastroBean {
     private String mensagemCadastro;
     
     public String cadastrar(){
-        mensagemCadastro = "Cadastro bem sucedido";
+        Usuario u = new Usuario();     
+        u.setNome(nome);
+        u.setCpf(cpf);
+        u.setEmail(email);
+        u.setLogin(login);
+        u.setSenha(senha); 
+        u.setTelefone(telefone);
+        u.setAdmin(admin);
+        
+        GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
+        user.save(u);
+        
+        mensagemCadastro = "Operação bem sucedida";
         return "sucesso";
     }
     
-    public String atualizar(){
+    public String atualiza(){
+        Usuario u = new Usuario();     
+        u.setId(id);
+        u.setNome(nome);
+        u.setCpf(cpf);
+        u.setEmail(email);
+        u.setLogin(login);
+        u.setSenha(senha); 
+        u.setTelefone(telefone);
+        u.setAdmin(admin);
         
+        GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
+        user.update(u);
+
+        mensagemCadastro = "Operação bem sucedida";
+        return "sucesso";
+    }
+    
+    public String atualizar(){        
         Usuario u = new Usuario();
         u = (Usuario) SessionContext.getInstance().getAttribute("user");
-                
+        id = u.getId();
         nome = u.getNome();
+        telefone = u.getTelefone();
         cpf = u.getCpf();
         email = u.getEmail();
         login = u.getLogin();
-        senha = u.getSenha();
-        telefone = getTelefone();
-        
+        senha = u.getSenha();        
+        admin = u.isAdmin();
         return "atualiza";
     }
     
-    //Metodos Get e Set
-        public String getTelefone() { return telefone; }
-        public void setTelefone(String telefone) { this.telefone = telefone; }
+    public String ExcluirConta(Usuario u){
+        GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
+        user.delete(u);        
+        new LoginBean().sair();                
+        return "excluido";
+    }
     
+    //Metodos Get e Set        
         public int getId() { return id; }
         public void setId(int id) { this.id = id; }
 
@@ -56,11 +91,11 @@ public class CadastroBean {
         public String getSenha() { return senha; }
         public void setSenha(String senha) { this.senha = senha; }
 
-        /*public String getTelefone() { return telefone.gettelefone(); }
-        public void setTelefone(String ddd, String numero) { this.telefone.setDdd(ddd); this.telefone.setNumero(numero); }*/
-
         public boolean isAdmin() { return admin; }
         public void setAdmin(boolean admin) { this.admin = admin; }
+
+        public String getTelefone() { return telefone; }
+        public void setTelefone(String telefone) { this.telefone = telefone; }
         
         public String getMensagemCadastro() { return mensagemCadastro; }
         public void setMensagemCadastro(String mensagem) { this.mensagemCadastro = mensagem; }

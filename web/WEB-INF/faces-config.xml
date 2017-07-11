@@ -15,12 +15,6 @@
         <managed-bean-name>cadastro</managed-bean-name>
         <managed-bean-class>beans.CadastroBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>   
-    
-    <managed-bean>
-        <managed-bean-name>perfil</managed-bean-name>
-        <managed-bean-class>beans.PerfilBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>  
     
     <managed-bean>
@@ -69,6 +63,14 @@
     </navigation-rule>
     
     <navigation-rule>
+        <from-view-id>/atualiza.xhtml</from-view-id>                
+        <navigation-case>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>       
+    </navigation-rule>
+    
+    <navigation-rule>
         <from-view-id>/perfil.xhtml</from-view-id>                
         <navigation-case>
             <from-outcome>saiu</from-outcome>
@@ -76,8 +78,12 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>atualiza</from-outcome>
-            <to-view-id>/cadastro.xhtml</to-view-id>
-        </navigation-case>           
+            <to-view-id>/atualiza.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>excluido</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>            
     </navigation-rule>
     
     <navigation-rule>
