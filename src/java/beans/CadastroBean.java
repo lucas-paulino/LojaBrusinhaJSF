@@ -24,12 +24,12 @@ public class CadastroBean {
         u.setLogin(login);
         u.setSenha(senha); 
         u.setTelefone(telefone);
-        u.setAdmin(admin);
+        u.setAdmin(admin);        
         
         GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
         user.save(u);
         
-        mensagemCadastro = "Operação bem sucedida";
+        mensagemCadastro = "Cadastro bem sucedida";
         return "sucesso";
     }
     
@@ -46,14 +46,14 @@ public class CadastroBean {
         
         GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
         user.update(u);
-
-        mensagemCadastro = "Operação bem sucedida";
+        
+        SessionContext.getInstance().setAttribute("user", u);
+        mensagemCadastro = "Atualização bem sucedida";
         return "sucesso";
     }
     
     public String atualizar(){        
-        Usuario u = new Usuario();
-        u = (Usuario) SessionContext.getInstance().getAttribute("user");
+        Usuario u = (Usuario) SessionContext.getInstance().getAttribute("user");
         id = u.getId();
         nome = u.getNome();
         telefone = u.getTelefone();
@@ -68,7 +68,8 @@ public class CadastroBean {
     public String ExcluirConta(Usuario u){
         GenericDAO<Usuario> user = new UsuarioDAO(Usuario.class);
         user.delete(u);        
-        new LoginBean().sair();                
+        new LoginBean().sair();
+        mensagemCadastro = "Conta excluida com sucesso";
         return "excluido";
     }
     

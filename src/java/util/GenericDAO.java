@@ -23,14 +23,9 @@ public class GenericDAO<E> {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         
-        Criteria cr = session.createCriteria(Usuario.class);
+        Criteria cr = session.createCriteria(entityClass);
         List<E> list = (List<E>) cr.list();
-        
-        /*CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-        CriteriaQuery<E> criteriaQuery = criteriaBuilder.createQuery(entityClass);
-        criteriaQuery.from(entityClass);
-        List<E> list = (List<E>) session.createQuery(criteriaQuery).getResultList();*/
-        
+
         transaction.commit();
         session.close();
         return list;

@@ -35,5 +35,20 @@ public class EstoqueDAO extends GenericDAO<Estoque>{
            estoque =(Estoque) list.get(0);
         }
         return estoque;
-    }    
+    }
+    
+    public List<Estoque> temNoEstoque() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+                
+        Criteria criteria = session.createCriteria(Estoque.class);
+        criteria.add(Restrictions.gt("quantidade",0));
+        List<Estoque> list = criteria.list();
+        
+        transaction.commit();
+        session.close();
+        
+        return list;
+    }
 }

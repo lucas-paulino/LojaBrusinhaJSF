@@ -3,6 +3,8 @@ package beans;
 import java.util.ArrayList;
 import java.util.List;
 import objetos.Categoria;
+import objetos.Estoque;
+import objetos.EstoqueDAO;
 import objetos.Produto;
 import objetos.ProdutoDAO;
 import session.SessionContext;
@@ -24,31 +26,10 @@ public class LojaBean {
     }
     
     public List<Produto> gerarProduto(){
-        List<Produto> produtosExe = new ArrayList<Produto>();        
-        
-        Categoria c = new Categoria();
-        c.setId(0);
-        c.setNome("Camisa");
-        c.setDescricao("Camisa bem bacana");        
-        
-        for(int i=0;i<37;i++){            
-            Produto p = new Produto();
-            if(i%2 == 0){
-                p.setId(i);
-                p.setNome("OutraBusinha");
-                p.setPreco("35,00"); 
-                p.setCategoria(c);
-                p.setDescricao("Brusinha na cor DarkSlateBlue, bem legal bem bacana para você");
-                p.setImg("img/camisa2.jpg");
-            }else{
-                p.setId(i);
-                p.setNome("Businha");
-                p.setPreco("30,00"); 
-                p.setCategoria(c);
-                p.setDescricao("Brusinha na cor FireBrick, bem legal bem bacana para você");
-                p.setImg("img/camisa.jpg");  
-            }
-            produtosExe.add(p);
+        List<Produto> produtosExe = new ArrayList<Produto>();
+        List<Estoque> estoque = new EstoqueDAO(Estoque.class).temNoEstoque();
+        for(Estoque e: estoque){
+            produtosExe.add(e.getProduto());
         }
         return produtosExe;
     }
