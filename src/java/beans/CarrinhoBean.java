@@ -10,6 +10,7 @@ import objetos.Usuario;
 import objetos.Venda;
 import objetos.VendaDAO;
 import objetos.VendaProduto;
+import objetos.VendaProdutoDAO;
 import session.SessionContext;
 import util.GenericDAO;
 
@@ -38,7 +39,7 @@ public class CarrinhoBean {
         
         this.itens.add(item);
         SessionContext.getInstance().setAttribute("itens", itens);
-        
+        System.out.println("Tamanho itens:" +itens.size());
         calcTotal(itens);
         
         return "addcarrinho";
@@ -59,35 +60,27 @@ public class CarrinhoBean {
         SessionContext.getInstance().setAttribute("totalCarrinho", total);
     }
 
-    public String finalizarVenda(){
-        if(SessionContext.getInstance().getAttribute("itens") != null){            
+    public String finalizarVenda(){        
+        if(SessionContext.getInstance().getAttribute("itens") != null){ //Se tem algo no carrinho
+                
             Usuario u = new Usuario();
             u = (Usuario) SessionContext.getInstance().getAttribute("user");
             
-            if(u == null){
+            if(u.equals(null)){ //se nao está logado
                 setMensagemCarrinho("Faça login para finalizar a venda");
                 return "semUser";
             }else{         
-                if(u.isAdmin()){
+                if(u.isAdmin()){ //se está logado e é admin
                     setMensagemCarrinho("Administrador não pode faz compra");
                     return "AdminNaoCompra";
                 }else{
+                    
                     Date data = new Date();
                     Venda venda = new Venda();
                     venda.setComprador(u);
                     venda.setData(data);
                     GenericDAO<Venda> v = new VendaDAO(Venda.class);
                     v.save(venda);
-                    /*List<VendaProduto> vendaProduto = new ArrayList<VendaProduto>();
-                    for( ItemCarrinho i : itens ){
-                        VendaProduto vp = new VendaProduto();
-                        vp.setVenda(venda);
-                        vp.setProduto(i.getProduto());
-                        vp.setQuantidade(i.getQuantidade());
-                        vp.setTamanho(i.getTamanho());
-                        //vendaProduto.add(vp);
-                    }*/
-                    System.out.println("Deu certo");
                     
                     List<ItemCarrinho> limpa = new ArrayList<ItemCarrinho>(); 
                     SessionContext.getInstance().setAttribute("itens", limpa);
@@ -98,8 +91,6 @@ public class CarrinhoBean {
             return "vazio";
         }
     }
-    
-    
     
     public List<ItemCarrinho> getItens() { return itens; }
     public void setItens(List<ItemCarrinho> itens) { this.itens = itens; }

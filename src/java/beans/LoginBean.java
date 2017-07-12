@@ -5,6 +5,10 @@ import objetos.Estoque;
 import objetos.EstoqueDAO;
 import objetos.Usuario;
 import objetos.UsuarioDAO;
+import objetos.Venda;
+import objetos.VendaDAO;
+import objetos.VendaProduto;
+import objetos.VendaProdutoDAO;
 import session.SessionContext;
 
 public class LoginBean {
@@ -23,6 +27,9 @@ public class LoginBean {
                 
                 List<Estoque> estoque = (List<Estoque>) new EstoqueDAO(Estoque.class).getAll();
                 SessionContext.getInstance().setAttribute("listaEstoque", estoque);
+                
+                List<Venda> vendas = (List<Venda>) new VendaDAO(Venda.class).getAll();
+                SessionContext.getInstance().setAttribute("listaVenda", vendas);
             }
             
             return "sucesso";            
